@@ -182,6 +182,7 @@ $site-header--top--background: 'white';
     .header-search {
         padding-right: var(--space--container-padding);
         padding-left: var(--space--container-padding);
+        margin: 0;
 
         @include mq('site-header') {
             padding-right: 0;
