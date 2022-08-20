@@ -1,0 +1,10 @@
+@charset 'UTF-8';
+
+// Fluidly increases the unit from the min to the max between the
+// global --fluid-min-width and --fluid-max-width screen sizes.
+@function ru($min, $max, $unit: '1rem') {
+    $min: strip-unit($min);
+    $max: strip-unit($max);
+
+    @return calc(((#{$min} / 16) * #{$unit}) + (#{$max} - #{$min}) * var(--fluid-bp));
+}

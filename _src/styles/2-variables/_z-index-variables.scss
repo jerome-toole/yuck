@@ -1,0 +1,45 @@
+// ---------------------------------------------------
+// Z-index Variables
+// ---------------------------------------------------
+// This approach automates z-index value generation, creating a more logical
+// and easier to understand ordering of component z-indexes. They can be easily
+// rearranged without resorting to wildly increasing values, e.g. 9999999999999.
+//
+// To create a new z-index, simply add a new name to the z-index list in the
+// relevant order (using the name of the component is a good convention).
+//
+// For example, the site-header component should appear above almost everything
+// else on the site so the burger menu works on small devices and dropdowns work
+// on larger devices. This means the z-index named 'site-header' should be added
+// near the end of the list and can then be used like this:
+// z-index: var(--z-index--site-header);
+//
+// Any sub-elements or related components that need to be reordered in the local
+// z-axis can be handled like this:
+// z-index: calc(var(--z-index--site-header) + 1);
+//
+// @link https://dev.to/mimafogeus2/a-better-way-to-manage-z-indexes-1nf
+// ---------------------------------------------------
+
+$z-indexes: (
+    'style-guide-toc',
+    'theme-editor',
+    'cookie-notice',
+    'site-header',
+    'screen-reader', // Almost always on top of everything else.
+);
+
+@mixin z-index-variables {
+    $i: 0;
+
+    @each $z-index in $z-indexes {
+        $i: $i + 1; // Increment index.
+
+        // Output each defined $z-index as a custom property.
+        // e.g. --z-index--site-header
+        $name: '--z-index--#{$z-index}';
+        $value: $i * 100;
+
+        #{$name}: #{$value};
+    }
+}

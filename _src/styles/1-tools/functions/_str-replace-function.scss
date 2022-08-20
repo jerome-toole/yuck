@@ -1,0 +1,32 @@
+@charset 'UTF-8';
+
+/// Helper function to retrieve a space value defined in variables.
+/// Useful for removing random spacing used in the code base
+///
+/// @param {string} $string - The string to search through
+///
+/// @param {string} $search - The string to search for
+///
+/// @param {string} $replace [''] - The string to put in place of $search
+///
+/// @example scss
+///     $string: str-replace('This is a test', 'test');
+///
+/// @example scss
+///     $string: str-replace('This is a test', 'test', 'monkey');
+///
+/// @access public
+
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice(
+            $string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)),
+            $search,
+            $replace
+        );
+    }
+
+    @return $string;
+}

@@ -1,0 +1,12 @@
+@mixin interact {
+    &:focus,
+    &:active {
+        @content;
+    }
+
+    &:hover {
+        @media (hover: hover) {
+            @content;
+        }
+    }
+}

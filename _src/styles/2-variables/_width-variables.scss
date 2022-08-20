@@ -1,0 +1,32 @@
+
+// As custom properties can't be used in media queries,
+// we create these as a map so they can be called by the
+// width() function.
+$widths: (
+    'xxs': 560px,
+    'xs': 720px,
+    's': 765px,
+    'm': 1200px,
+    'l': 1400px
+);
+
+@mixin width-variables {
+    // Define a container width with container-padding subtracted.
+    --width--responsive--container: calc(100% - (var(--space--container-padding) * 2));
+
+    @each $width in $widths {
+        // Output each defined $widths as a custom property.
+        // e.g. --width--l
+        $name--s: '--width--#{nth($width, 1)}';
+        $value--s: #{nth($width, 2)};
+
+        #{$name--s}: #{$value--s};
+
+        // Output a responsive width for each $widths as a custom property.
+        // e.g. --width--responsive--l
+        $name--r: '--width--responsive--#{nth($width, 1)}';
+        $value--r: min(var(#{$name--s}), var(--width--responsive--container));
+
+        #{$name--r}: #{$value--r};
+    }
+}

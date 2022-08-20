@@ -1,0 +1,21 @@
+@use 'sass:math';
+
+/// Helper function to retrieve a em size
+/// Converts a pixel to an em size based on a base font size
+///
+/// @param {string} $target - The target font size
+/// @param {string} $base [$base-font-size] - The base font size
+///
+/// @example scss
+///     font-size: em(50px);
+///
+/// @example scss
+///     font-size: em(50px, 20px);
+///
+/// @access public
+
+@function em($target, $base: $base-font-size) {
+    $size: math.div(strip-unit($target), strip-unit($base));
+
+    @return #{$size}em;
+}

@@ -1,0 +1,26 @@
+@mixin grid($columns: null, $columns--m: null, $columns--l: null) {
+    display: grid;
+    column-gap: var(--grid--column-gap);
+    grid-template-columns: repeat(var(--grid--columns), minmax(0, 1fr));
+    row-gap: var(--grid--row-gap);
+
+    @if ($columns) {
+        --grid--columns: #{$columns};
+    }
+
+    @if ($columns--m) {
+        @include mq(medium) {
+            --grid--columns: #{$columns--m};
+        }
+    }
+
+    @if ($columns--l) {
+        @include mq(large) {
+            --grid--columns: #{$columns--l};
+        }
+    }
+}
+
+@mixin grid--auto-fit {
+    grid-template-columns: repeat(auto-fill, minmax(min(var(--grid--auto--min, #{rem(250)}), 100%), 1fr));
+}

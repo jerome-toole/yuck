@@ -1,0 +1,89 @@
+.cookie-notice {
+    position: fixed;
+    z-index: var(--z-index--cookie-notice);
+    bottom: var(--space--responsive--xs);
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+
+    @include mq(medium) {
+        bottom: var(--space--m);
+    }
+
+    &[aria-hidden='true'] {
+        visibility: hidden;
+    }
+
+    &__banner {
+        @include box-shadow;
+        @include rounded-corners;
+
+        display: flex;
+        width: auto;
+        max-width: min(
+            var(--width--m),
+            calc(100vw - (var(--space--container-padding))
+        )); // Intentionally a bit wider than standard align-width--l
+        flex-direction: column;
+        align-items: center;
+        padding: var(--space--xs);
+        opacity: 1;
+        pointer-events: initial;
+        text-align: center;
+        transform: translateY(0);
+        transition: transition(opacity, transform, visibility);
+
+        @include mq(medium) {
+            flex-direction: row;
+            justify-content: space-between;
+            padding-right: var(--space--m);
+            padding-left: var(--space--m);
+            text-align: left;
+        }
+
+        [aria-hidden='true'] & {
+            opacity: 0;
+            transform: translateY(100%);
+            visibility: hidden;
+        }
+
+        &:focus {
+            outline: none; // Fret not, this doesn't need any additional visible styles, the element is assigned tabindex -1 in JS
+        }
+    }
+
+    &__message {
+        @include no-first-last-margin;
+
+        flex: 0 1 auto;
+        margin-bottom: var(--space--xs);
+
+        @include mq(medium) {
+            margin-right: var(--space--container-padding);
+            margin-bottom: 0;
+        }
+
+        a {
+            @include link;
+        }
+    }
+
+    &__actions {
+        flex: 0 0 auto;
+
+        &-list {
+            --grid--column-gap: var(--space--xxs);
+            --grid--row-gap: var(--space--xs);
+
+            @include list-reset-hard;
+
+            justify-content: center;
+
+            @include mq(medium) {
+                justify-content: flex-end;
+            }
+        }
+    }
+}

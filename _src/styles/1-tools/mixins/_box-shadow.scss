@@ -1,0 +1,5 @@
+//TODO remove box-shadow mixin
+
+@mixin box-shadow {
+    box-shadow: var(--box-shadow--1);
+}

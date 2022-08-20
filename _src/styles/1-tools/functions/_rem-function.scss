@@ -1,0 +1,22 @@
+@charset 'UTF-8';
+@use 'sass:math';
+
+/// Helper function to retrieve a rem size
+/// Converts a pixel to an rem size based on a base font size
+///
+/// @param {string} $target - The target font size
+/// @param {string} $base [$base] - The base font size
+///
+/// @example scss
+///     font-size: rem(50px);
+///
+/// @example scss
+///     font-size: rem(50px, 20px);
+///
+/// @access public
+
+@function rem($target, $base: 16) {
+    $size: math.div(strip-unit($target), strip-unit($base));
+
+    @return #{$size}rem;
+}

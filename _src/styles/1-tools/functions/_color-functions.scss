@@ -1,0 +1,67 @@
+@use 'sass:color';
+
+/// Helper function to retrieve a color defined in variables.
+/// Useful for removing random colors used in the code base
+///
+/// @param {string} $color - The name of the color as defined in the sass map
+///
+/// @example scss
+///    color: color('red');
+///
+/// @access public
+
+@function color-theme($theme) {
+    @if map-has-key($colors, $theme) {
+        @return map-get($colors, $theme);
+    } @else {
+        @error 'Color theme not defined: `#{$theme}`';
+    }
+}
+
+@function color-map($color, $theme: 'base') {
+    $theme: color-theme($theme);
+
+    @if map-has-key($theme, $color) {
+        $colormap: map-get($theme, $color);
+
+        @if map-has-key($colormap, 'namedColor') {
+            @return color-map(map-get($colormap, 'namedColor'), $theme: 'base');
+        } @else {
+            @return map-get($theme, $color);
+        }
+    }
+
+    @error 'Color not defined in theme: `#{$color}` in `#{$theme}`';
+}
+
+@function color($color, $theme: 'base') {
+    $colormap: color-map($color, $theme);
+
+    @if map-has-key($colormap, 'namedColor') {
+        @return color(map-get($colormap, 'namedColor'), $theme);
+    } @else if map-has-key($colormap, 'color') {
+        @return map-get($colormap, 'color');
+    } @else {
+        @error 'Color not defined in color map: `#{$colormap}` in `#{$theme}`';
+    }
+}
+
+@function foreground-color($color, $theme: 'base') {
+    $colormap: color-map($color, $theme);
+
+    @return map-get($colormap, 'foreground');
+}
+
+// Convert a hex value to comma-separated rgb values
+// In: #000
+// Out: 0,0,0
+@function rgb-from-hex($hex) {
+    @return color.red($hex), color.green($hex), color.blue($hex);
+}
+
+// Convert a hex value to comma-separated hsl values
+// In: #000
+// Out: 0,0,0
+@function hsl-from-hex($hex) {
+    @return color.hue($hex), color.saturation($hex), color.lightness($hex);
+}

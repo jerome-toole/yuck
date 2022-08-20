@@ -1,0 +1,153 @@
+.site-footer {
+    --link--color: var(--color--foreground);
+    --link--color--hover: var(--color--foreground);
+    --site-footer__images--aspect-ratio: 28 / 13;
+
+    $this: &;
+    $footer-breakpoint--small: 400px;
+
+    padding-top: var(--space--l);
+    padding-bottom: var(--space--l);
+
+    &__logo { grid-area: logo; }
+    &__top-text { grid-area: top-text; }
+    &__menu-1 { grid-area: menu-1; }
+    &__menu-2 { grid-area: menu-2; }
+    &__right { grid-area: right; }
+
+    &__top {
+        display: grid;
+        padding-bottom: var(--space--l);
+        grid-column-gap: var(--space--m);
+        grid-row-gap: var(--space--m);
+        grid-template-areas:
+            'logo'
+            'top-text'
+            'menu-1'
+            'menu-2'
+            'right';
+
+        @include mq($footer-breakpoint--small) {
+            grid-template-areas:
+                'logo logo'
+                'top-text menu-1'
+                'menu-2 right';
+        }
+
+        @include mq(medium) {
+            grid-template-areas:
+                'logo menu-1 menu-2 . right'
+                'top-text menu-1 menu-2 . right';
+            grid-template-columns: minmax(0, 1fr) minmax(0, 0.5fr) minmax(0, 0.5fr) auto minmax(0, 1fr);
+            grid-template-rows: min-content 1fr;
+        }
+
+        @include mq(large) {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 0.5fr) minmax(0, 0.5fr) minmax(0, 1fr) minmax(0, 1fr);
+        }
+
+        > * {
+            @include no-first-last-margin;
+        }
+    }
+
+    &__logo {
+        a {
+            display: inline-block;
+            width: 100%;
+            max-width: rem(130);
+
+            @include mq(medium) {
+                max-width: rem(165);
+            }
+        }
+
+        img {
+            display: inline-block;
+            width: 100%;
+        }
+    }
+
+    &__top-text {
+        @include no-first-last-margin;
+
+        p {
+            margin-bottom: 0;
+        }
+
+        a {
+            @include link--2;
+        }
+
+        > * + * {
+            margin-top: var(--space--xxs);
+        }
+    }
+
+    &__menu {
+        $menu: &;
+
+        &__inner {
+            @include list-reset-hard;
+
+            display: grid;
+            gap: var(--space--xxs);
+        }
+
+        a {
+            @include link--2;
+        }
+    }
+
+    &__right {
+        display: grid;
+        align-self: stretch;
+        gap: var(--space--base);
+
+        @include mq(medium) {
+            justify-items: flex-end;
+        }
+    }
+
+    .social-icons {
+        --grid--column-gap: var(--space--xs);
+
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+    }
+
+    &__images {
+        --grid--columns: 2;
+
+        width: 100%;
+        max-width: rem(280);
+        justify-content: flex-end;
+    }
+
+    &__image {
+        aspect-ratio: var(--site-footer__images--aspect-ratio);
+
+        > * {
+            object-fit: contain;
+        }
+    }
+
+    &__bottom {
+        padding-top: var(--space--base);
+        border-top: var(--border--1);
+
+        &__inner {
+            align-items: center;
+            gap: rem(25);
+            text-align: center;
+        }
+
+        #{$this}__bottom-text {
+            @include no-first-last-margin;
+
+            max-width: 60em;
+            text-align: left;
+        }
+    }
+}

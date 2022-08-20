@@ -1,0 +1,47 @@
+// ---------------------------------------------------
+// Spacing
+// ---------------------------------------------------
+
+@mixin space-variables {
+    --space--xxxs: #{rem(5px)};
+    --space--xxs: #{rem(10px)};
+    --space--xs: #{rem(15px)};
+    --space--s: #{rem(20px)};
+    --space--m: #{rem(30px)};
+    --space--l: #{rem(50px)};
+    --space--xl: #{rem(65px)};
+    --space--xxl: #{rem(110px)};
+    --space--xxxl: #{rem(130px)};
+
+    --space--container-padding: #{rem(20)}; // Default padding on the sides of the page
+
+    --space--base: #{rem(25)}; // Default vertical spacing between text elements
+
+    // Default vertical spacing between larger components
+    // and blocks
+    --space--layout: var(--space--l);
+
+    // Each of these responsive spaces start one size below
+    // and move up one step at the 'small' breakpoint
+    --space--responsive--xxs: var(--space--xxxs);
+    --space--responsive--xs: var(--space--xxs);
+    --space--responsive--s: var(--space--xs);
+    --space--responsive--m: var(--space--s);
+    --space--responsive--l: var(--space--m);
+    --space--responsive--xl: var(--space--l);
+    --space--responsive--xxl: var(--space--l);
+
+    @include mq(small) {
+        --space--container-padding: #{rem(30)};
+
+        --space--layout: var(--space--xxl);
+
+        --space--responsive--xxs: var(--space--xxs);
+        --space--responsive--xs: var(--space--xs);
+        --space--responsive--s: var(--space--s);
+        --space--responsive--m: var(--space--m);
+        --space--responsive--l: var(--space--l);
+        --space--responsive--xl: var(--space--xl);
+        --space--responsive--xxl: var(--space--xxl);
+    }
+}

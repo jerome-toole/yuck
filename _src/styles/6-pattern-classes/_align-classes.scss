@@ -1,0 +1,21 @@
+.aligncenter {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.alignwide {
+    @include align-width--l;
+}
+
+.alignfull {
+    @include align-width--full-bleed;
+}
+
+.alignright {
+    @include align-width--right;
+}
+
+.alignleft {
+    @include align-width--left;
+}

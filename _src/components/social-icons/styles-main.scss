@@ -1,0 +1,39 @@
+.social-icons {
+    --social-icons--icon-size: #{rem(28)};
+    --grid--columns: 0;
+
+    &__icons {
+        @include list-reset-hard;
+        @include flex-grid;
+        @include flex-grid--auto;
+
+        align-items: center;
+    }
+
+    &__icon {
+        a {
+            position: relative;
+            display: flex;
+            width: 1em;
+            height: 1em;
+            align-items: center;
+            justify-content: center;
+            color: inherit;
+            font-size: var(--social-icons--icon-size);
+            transition: background-color var(--transition--duration) var(--transition--ease);
+
+            @include interact {
+                background-color: transparent;
+            }
+        }
+
+        svg {
+            display: block;
+        }
+    }
+
+    svg,
+    path {
+        fill: currentColor;
+    }
+}

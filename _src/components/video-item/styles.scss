@@ -1,0 +1,138 @@
+@import '../../core';
+
+.video-item {
+    --video-item--aspect-ratio: 16 / 9;
+    --video-item--close--size: var(--space--m);
+    --video-item--play--size: clamp(#{rem(40)}, 20%, #{rem(75)});
+
+    $this: &;
+
+    position: relative;
+
+    &__media {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__video {
+        position: fixed;
+        z-index: 9;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: transition(opacity, visibility);
+        visibility: hidden;
+
+        &-inner {
+            position: relative;
+            display: flex;
+            width: calc(100% - var(--space--container-padding) * 2);
+            max-height: 80vh;
+            flex-flow: row nowrap;
+
+            @include mq(medium) {
+                @include align-width--l;
+            }
+        }
+
+        &-wrap {
+            position: relative;
+            width: 100%;
+            background-color: var(--color--black);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+            &::before {
+                display: block;
+                aspect-ratio: var(--video-item--aspect-ratio);
+                content: '';
+            }
+        }
+
+        &-close {
+            --cross--color: var(--color--white);
+            --cross--size: var(--video-item--close--size);
+
+            @include button-reset-hard;
+
+            position: absolute;
+            right: 0;
+            bottom: calc(100% + var(--space--xxs));
+            width: calc(var(--video-item--close--size) + 5px);
+            height: calc(var(--video-item--close--size) + 5px);
+            opacity: 0;
+            transition: transition(opacity);
+
+            @include mq(large) {
+                bottom: calc(100% + var(--space--xxs));
+            }
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        &::before {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: transparent;
+            content: '';
+            transition: transition(background-color);
+        }
+    }
+
+    &__play-button {
+        @include button-reset-hard;
+
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        background: url(#{asset-path('images/icons/play.svg')}) center no-repeat;
+        background-size: var(--video-item--play--size);
+        transition: transition(opacity, background-color);
+
+        @include interact {
+            opacity: 0.7;
+        }
+    }
+
+    &.video-item--play {
+        #{$this}__video {
+            opacity: 1;
+            pointer-events: all;
+            visibility: visible;
+
+            &-close {
+                opacity: 1;
+            }
+
+            &::before {
+                background-color: rgba(#222, 0.2);
+                visibility: visible;
+            }
+        }
+    }
+}

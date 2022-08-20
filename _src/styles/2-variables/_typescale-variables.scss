@@ -1,0 +1,81 @@
+/* stylelint-disable number-no-trailing-zeros */
+
+@use 'sass:meta';
+
+// ---------------------------------------------------
+// Type Scale Settings
+// This file is not imported by default but supports creating a fluid modular type scale.
+//
+// The approach is detailed here: https://utopia.fyi/blog/css-modular-scales
+//
+// Fluidly responsive custom properties are generated from this map and can be used like so:
+// font-size: var(--type--size--3);
+//
+// Either use arbitrary units for each type step or generate a modular type scale using the utopia type scale calculator: https://utopia.fyi/type/calculator/
+// ---------------------------------------------------
+
+// Define type sizes in pixels.
+$typescale-steps: (
+    8: (
+        min: 41.05,
+        max: 107.29,
+    ),
+    7: (
+        min: 36.49,
+        max: 85.83,
+    ),
+    6: (
+        min: 32.44,
+        max: 68.66,
+    ),
+    5: (
+        min: 28.83,
+        max: 54.93,
+    ),
+    4: (
+        min: 25.63,
+        max: 43.95,
+    ),
+    3: (
+        min: 22.78,
+        max: 35.16,
+    ),
+    2: (
+        min: 20.25,
+        max: 28.13,
+    ),
+    1: (
+        min: 18.00,
+        max: 22.50,
+    ),
+    0: (
+        min: strip-unit($base-font-size),
+        max: strip-unit($base-font-size),
+    ),
+    -1: (
+        min: 14.22,
+        max: 14.40,
+    ),
+    -2: (
+        min: 12.64,
+        max: 11.52,
+    ),
+    -3: (
+        min: 11.24,
+        max: 9.22,
+    ),
+);
+
+// Output
+@mixin typescale-variables {
+    @if meta.variable-exists('typescale-steps') {
+        @each $step, $sizes in $typescale-steps {
+            --type--size--#{$step}-min: #{map-get(map-get($typescale-steps, $step), 'min')};
+            --type--size--#{$step}-max: #{map-get(map-get($typescale-steps, $step), 'max')};
+            --type--size--#{$step}: #{rfs(
+                map-get($typescale-steps, $step, 'min'),
+                map-get($typescale-steps, $step, 'max')
+            )};
+        }
+    }
+}

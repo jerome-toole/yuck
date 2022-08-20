@@ -1,0 +1,37 @@
+@charset 'UTF-8';
+@use 'sass:map';
+
+/// Provides background and foreground color custom properties
+/// based on the background color passed in.
+///
+/// @example scss
+///    @include color-context('brand-1');
+///
+/// @access public
+
+// TODO support link colors in color contexts
+
+@mixin color-context($background, $theme: 'base') {
+    @if ($background != 'background') {
+        --color--background: var(--color--#{$background});
+    }
+
+    background-color: var(--color--background);
+
+    @if (foreground-color(#{$background}, #{$theme})) {
+        --color--foreground: #{foreground-color(#{$background}, #{$theme})};
+        --focus--color: var(--color--foreground);
+
+        color: var(--color--foreground);
+    }
+
+    @if (map.get($colors, $theme, $background, 'properties')) {
+        $properties: map.get($colors, $theme, $background, 'properties');
+
+        @each $property, $value in $properties {
+            $theme-name: nth($theme, 1);
+
+            #{$property}: #{$value};
+        }
+    }
+}

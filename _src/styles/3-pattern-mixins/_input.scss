@@ -1,0 +1,26 @@
+@mixin input {
+    @include no-focus-be-careful; // we are adding custom focus styles here
+
+    display: block;
+    width: 100%;
+    padding: var(--input--padding-y) var(--input--padding-x);
+    border: var(--input--border-width) solid var(--input--border-color);
+    background: var(--input--background-color);
+    border-radius: var(--input--border-radius);
+    box-shadow: none;
+    color: var(--input--color);
+    font-family: inherit;
+    line-height: inherit;
+    transition: transition(color, background-color, border-color, box-shadow, transform);
+
+    &:focus,
+    &:focus-within {
+        background: var(--input--background-color--focus);
+        box-shadow: 0 0 0 var(--input--outline-width--focus) var(--input--outline-color--focus);
+        color: var(--input--color--focus);
+    }
+}
+
+@mixin input--button-height {
+    --input--padding-y: calc(var(--button--padding-y) + (var(--button--border-width) - var(--input--border-width)));
+}

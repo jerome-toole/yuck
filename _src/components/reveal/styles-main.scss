@@ -1,0 +1,22 @@
+.reveal {
+    .reveal__content {
+        overflow: hidden;
+        height: 0;
+        transition: transition(height, opacity, transform);
+    }
+
+    &.is-enabled {
+        .reveal__content {
+            height: auto;
+            opacity: 0;
+            transform: translateY(var(--reveal--translateY, 0px));
+        }
+    }
+
+    &.is-open {
+        .reveal__content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}

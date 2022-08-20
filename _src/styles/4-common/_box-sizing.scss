@@ -1,0 +1,16 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+// ------------------------------
+// Fixes a chrome bug where inherit doesn't work
+// ------------------------------
+details > * {
+    box-sizing: border-box;
+}

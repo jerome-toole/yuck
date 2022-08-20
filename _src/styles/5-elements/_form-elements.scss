@@ -1,0 +1,55 @@
+::placeholder {
+    color: var(--input--placeholder-color);
+    opacity: 1;
+}
+
+fieldset {
+    // ----------------------------------------------
+    // Do you want the legend to behave normally like
+    // a normal div tag?
+    // ----------------------------------------------
+    // @include fieldset-legend-flow;
+
+    // ----------------------------------------------
+    // Standard resets
+    // ----------------------------------------------
+    width: 100%;
+    padding: 0;
+    border: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: var(--form--label-spacing);
+}
+
+[type='text'],
+[type='password'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='month'],
+[type='week'],
+[type='email'],
+[type='number'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='url'],
+[type='color'],
+textarea {
+    @include input;
+}
+
+select {
+    @include input;
+    @include select;
+}
+
+textarea,
+[multiple] {
+    height: var(--form--textarea-height);
+    resize: vertical;
+}

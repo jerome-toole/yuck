@@ -1,0 +1,87 @@
+// stylelint-disable order/order
+
+@mixin global-variables {
+    // ---------------------------------------------------
+    // Site
+    // ---------------------------------------------------
+    --site--scroll-padding-top: var(--site-header--bottom);
+
+    // ---------------------------------------------------
+    // Border
+    // ---------------------------------------------------
+    --border-radius--s: 3px;
+    --border-radius--m: 10px;
+
+    --border-width--s: 2px;
+    --border-width--m: 4px;
+
+    --border--1: var(--border-width--s) solid var(--color--brand-1);
+
+    // ---------------------------------------------------
+    // Focus
+    // ---------------------------------------------------
+    --focus--color: var(--color--brand-5);
+    --focus--1--offset: 5px;
+    --focus--1--width: 3px;
+
+    // ---------------------------------------------------
+    // Selection
+    // ---------------------------------------------------
+    --selection-color: var(--color--background);
+    --selection-background: var(--color--foreground);
+
+    // ---------------------------------------------------
+    // Box Shadow
+    // ---------------------------------------------------
+    --box-shadow--1: 0 3px 9px hsla(var(--color--brand-1--hsl), 0.15);
+    --box-shadow--1--hover: 0 3px 20px 3px hsla(var(--color--brand-1--hsl), 0.15);
+    --box-shadow--2: 0 2px 7px hsla(var(--color--black--hsl), 0.1);
+    // --box-shadow--2--hover: 0 2px 7px hsla(var(--color--black--hsl), 0.1);
+
+    // ---------------------------------------------------
+    // Transitions
+    // ---------------------------------------------------
+    --transition--duration: 200ms;
+    --transition--ease: #{ease('out-quart')};
+
+    // ---------------------------------------------------
+    // Grids
+    // ---------------------------------------------------
+    --grid--column-gap: var(--space--responsive--s);
+    --grid--row-gap: var(--grid--column-gap);
+    --grid--columns: 1;
+    --grid--auto-fit--min: #{rem(300)};
+
+    @include mq(medium) {
+        --grid--columns: 2;
+    }
+
+    @include mq(large) {
+        --grid--columns: 4;
+    }
+
+    // ---------------------------------------------------
+    // Horizontal rule styling
+    // ---------------------------------------------------
+    --hr--color: var(--color--brand-1);
+    --hr--thickness: 2px;
+
+    // ---------------------------------------------------
+    // Blocks context variables
+    // ---------------------------------------------------
+    --blocks--padding-top: var(--space--responsive--xl);
+    --blocks--padding-bottom: var(--space--responsive--xl);
+
+    --block--margin-top: var(--space--layout);
+    --block--margin-bottom: var(--space--layout);
+    --block--padding-y: var(--space--responsive--l);
+    --block--padding-x: var(--space--responsive--l);
+    --block--max-width: var(--width--responsive--s);
+
+    --block--header--alignment: center;
+    --block--header--margin-bottom: var(--space--base);
+    --block--footer--margin-top: var(--space--base);
+}
+
+// Used by components to set overflow and border-radius
+$rounded-corners: true;

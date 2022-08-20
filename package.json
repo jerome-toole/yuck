@@ -1,0 +1,77 @@
+{
+  "name": "granola",
+  "version": "3.0.0",
+  "description": "Wholegrain Digital's WordPress development framework",
+  "private": true,
+  "author": "Wholegrain Digital",
+  "license": "MIT",
+  "scripts": {
+    "start": "gulp watch",
+    "setup": "npm install && gulp",
+    "deploy": "npm install && gulp",
+    "fix": "gulp fix",
+    "fix:styles": "gulp stylesFix",
+    "fix:scripts": "gulp scriptsFix"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=16.13.0",
+    "npm": ">=8.1.0"
+  },
+  "workspaces": [
+    "_src/components*/*"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.11.5",
+    "@ronilaukkarinen/gulp-stylelint": "14.0.6",
+    "autoprefixer": "^10.2.5",
+    "babel-loader": "^8.1.0",
+    "browser-sync": "^2.26.14",
+    "core-js": "^3.6.5",
+    "cssnano": "^5.0.4",
+    "del": "^6.0.0",
+    "directory-tree": "^3.0.0",
+    "eslint": "^8.17.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-webpack-plugin": "^3.1.1",
+    "glob": "^8.0.1",
+    "gulp": "^4.0.2",
+    "gulp-eslint-new": "^1.5.1",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-phpcbf": "^0.1.2",
+    "gulp-phpcs": "^3.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-sizereport": "^1.2.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-wp-pot": "^2.5.0",
+    "import-glob": "^1.5.0",
+    "postcss": "^8.3.0",
+    "prettier": "^2.4.1",
+    "sass": "^1.50.0",
+    "sass-loader": "^13.0.0",
+    "sass-mq": "^6.0.0",
+    "stylelint": "^14.6.1",
+    "stylelint-config-idiomatic-order": "^8.1.0",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-scss": "^4.2.0",
+    "vinyl-named-with-path": "^1.0.0",
+    "webpack": "^5",
+    "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "normalize.css": "^8.0.1"
+  },
+  "overrides": {
+    "wp-pot": "1.9.9"
+  }
+}

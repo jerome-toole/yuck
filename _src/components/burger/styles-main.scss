@@ -1,0 +1,81 @@
+.burger {
+    --burger--size: #{rem(25)};
+    --burger--padding: #{rem(20)};
+    --burger--thickness: 2px;
+    --burger--border-thickness: 2px;
+
+    --burger--color: var(--color--foreground);
+    --burger--background-color: var(--color--background);
+    --burger--border-color: var(--color--background);
+    --burger--color--hover: var(--color--background);
+    --burger--background-color--hover: var(--color--foreground);
+    --burger--border-color--hover: var(--color--foreground);
+
+    $this: &;
+
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    width: calc(var(--burger--size) + var(--burger--padding));
+    height: calc(var(--burger--size) + var(--burger--padding));
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+    border: var(--burger--border-thickness) solid var(--burger--border-color);
+    background-color: var(--burger--background-color);
+    border-radius: 100%;
+    transition: transition(color, background-color, border-color, transform);
+
+    @include interact {
+        border-color: var(--burger--border-color--hover);
+        background-color: var(--burger--background-color--hover);
+
+        #{$this}__line {
+            background-color: var(--burger--color--hover);
+        }
+    }
+
+    &[aria-expanded=true] {
+        border-color: var(--burger--border-color--hover);
+        background-color: var(--burger--background-color--hover);
+
+        #{$this}__line {
+            background-color: var(--burger--color--hover);
+        }
+
+        #{$this}__line {
+            &--1 {
+                transform: rotate(45deg);
+            }
+
+            &--2 {
+                opacity: 0;
+            }
+
+            &--3 {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    &__line {
+        position: absolute;
+        display: block;
+        width: var(--burger--size);
+        height: var(--burger--thickness);
+        margin: 0;
+        background-color: var(--burger--color);
+        border-radius: var(--border-radius--s);
+        content: '';
+        transition: transition(opacity, transform, top, background-color);
+
+        &--1 {
+            transform: translateY(-10px);
+        }
+
+        &--3 {
+            transform: translateY(10px);
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@mixin mask-icon($pseudo: after, $position: static) {
+    &::#{$pseudo} {
+        @if ($position == 'absolute') {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        background-color: currentColor;
+        content: '';
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: var(--mask-icon--size, contain);
+    }
+}

@@ -1,0 +1,29 @@
+@mixin blockquote {
+    --blockquote--border-width: var(--border-width--s);
+    --blockquote--padding-left: var(--space--s);
+    --blockquote--border-offset: 0.5em;
+    --block--margin-top: var(--space--responsive--m);
+    --block--margin-bottom: var(--space--responsive--m);
+    --block--max-width: var(--width--responsive--xs);
+
+    @include no-first-last-margin;
+
+    position: relative;
+    padding: 0;
+    padding-left: var(--blockquote--padding-left);
+    border: 0;
+
+    > :not(cite):not(.wp-block-quote__citation) {
+        @include typestyle-h3;
+    }
+
+    &::before {
+        position: absolute;
+        top: var(--blockquote--border-offset);
+        bottom: var(--blockquote--border-offset);
+        left: calc(var(--blockquote--border-width) * -1);
+        width: var(--blockquote--border-width);
+        background-color: var(--color--foreground);
+        content: '';
+    }
+}

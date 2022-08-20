@@ -1,0 +1,7 @@
+*:focus {
+    @include focus--1;
+}
+
+[tabindex='-1']:focus {
+    @include no-focus-be-careful;
+}

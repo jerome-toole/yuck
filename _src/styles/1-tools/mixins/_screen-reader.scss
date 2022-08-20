@@ -1,0 +1,27 @@
+@charset 'UTF-8';
+
+/// Generate styling that makes the content invisible for general use but
+/// readable/visible by screen readers or when focused.
+///
+/// @example scss
+///    @include screen-reader;
+///
+/// @access public
+
+@mixin screen-reader {
+    position: absolute !important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+
+    &:focus {
+        z-index: var(--z-index--screen-reader);
+        top: calc(var(--space--m) / 2);
+        left: calc(var(--space--m) / 2);
+        display: block;
+        width: auto;
+        height: auto;
+        clip: auto;
+    }
+}

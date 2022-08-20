@@ -1,0 +1,24 @@
+@charset 'UTF-8';
+
+/// Alias fonts so they render more like they do in design tools.
+/// Additionally turn on font ligatures.
+/// Note that aliasing only applies to macOS
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/text-rendering
+///
+/// @example scss
+///    @include alias-text;
+///
+/// @access public
+
+@mixin alias-text {
+    // Alias webkit based browsers. Only works on macOS
+    -webkit-font-smoothing: antialiased;
+
+    // Alias gecko browsers. Only works on macOS
+    -moz-osx-font-smoothing: grayscale;
+
+    // Turn on ligatures
+    text-rendering: optimizeLegibility;
+}

@@ -1,0 +1,33 @@
+// $mq-base-font-size: $base-font-size;
+
+// Name your breakpoints in a way that creates a ubiquitous language
+// across team members. It will improve communication between
+// stakeholders, designers, developers, and testers.
+$mq-breakpoints: (
+    xsmall: 400px,
+    small: 576px,
+    medium: 768px,
+    large: 992px,
+    xlarge: 1200px,
+    xxlarge: 1400px,
+    xxxlarge: 1900px,
+    site-header: 1263px,
+);
+
+// Define the breakpoint from the $mq-breakpoints list that should
+// be used as the target width when outputting a static stylesheet
+// (i.e. when $mq-responsive is set to 'false').
+$mq-static-breakpoint: xlarge;
+
+// If you want to display the currently active breakpoint in the top
+// right corner of your site during development, add the breakpoints
+// to this list, ordered by width, e.g. (mobile, tablet, desktop).
+$mq-show-breakpoints: ();
+
+// $mq-show-breakpoints: (small, medium, large, xlarge);
+
+// ----------------------------------------------
+// Import sass-mq. We have to do this here because it needs to be imported before we
+// use it defining custom props but after the $mq-breakpoints definition above.
+// ----------------------------------------------
+@import 'sass-mq/mq';

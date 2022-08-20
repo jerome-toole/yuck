@@ -1,0 +1,34 @@
+// ----------------------------------------------
+// Generate .has-#{$color}-background-color and .has-#{$color}-color
+// required classes from our '$colors' palette.
+// Gutenberg uses these out of the box but these classes are also
+// a simple way to create color contexts.
+// ----------------------------------------------
+
+@each $theme, $colors in $colors {
+    $theme-name: nth($theme, 1);
+    $selector: '.theme--#{$theme}';
+
+    @if $theme == 'base' {
+        $selector: ':root';
+    }
+
+    #{$selector} {
+        @each $color in $colors {
+            $name: #{nth($color, 1)};
+            $property: '--color--#{nth($color, 1)}';
+
+            .has-#{$name}-background-color {
+                @include color-context(#{$name}, #{$theme});
+            }
+
+            .has-#{$name}-color {
+                color: var(#{$property});
+            }
+        }
+    }
+}
+
+.has-background-dim {
+    @include color-context('black');
+}

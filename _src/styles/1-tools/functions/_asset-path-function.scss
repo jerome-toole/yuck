@@ -1,0 +1,17 @@
+/// Helper function for generating a valid relative path depending on whether or not the
+/// the SCSS is included in the main SCSS file (at the root of the theme) or loaded separately
+///
+/// @param {string} $url - The URL for an asset relative to the main.css file
+///
+/// @example scss
+///     mask-image: asset-path('./images/icons/chevron.svg');
+///
+/// @access public
+
+@function asset-path($url) {
+    $asset-path-prefix: '../../' !default;
+
+    $url: $asset-path-prefix + $url;
+
+    @return $url;
+}

@@ -1,0 +1,19 @@
+img {
+    // ----------------------------------------------
+    // Making images fit within and align with text
+    // ----------------------------------------------
+    display: inline-block;
+
+    // ----------------------------------------------
+    // Basic responsive images
+    // ----------------------------------------------
+    width: auto;
+    max-width: 100%;
+    height: auto;
+
+    // ----------------------------------------------
+    // Removing the gap underneath images caused by
+    // inlineblock
+    // ----------------------------------------------
+    vertical-align: middle;
+}

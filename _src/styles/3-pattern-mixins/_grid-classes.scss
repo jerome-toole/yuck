@@ -1,0 +1,15 @@
+.grid {
+    @include grid;
+
+    &--auto-fit {
+        @include grid--auto-fit;
+    }
+}
+
+.flex-grid {
+    @include flex-grid;
+
+    &--auto {
+        @include flex-grid--auto;
+    }
+}

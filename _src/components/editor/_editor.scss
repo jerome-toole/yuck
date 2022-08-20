@@ -1,0 +1,89 @@
+// Block Alignments
+.block-editor-block-list__layout > .wp-block {
+    // Gutenberg injects a rule that limits the max width of .wp-block to 580px
+    // This line overrides it to use the responsive spacing rules for default width content
+    max-width: var(--width--responsive--s);
+
+    &[data-type*='acf/'],
+    .block-editor-block-list__layout.is-root-container > &[data-type*='acf/'] {
+        @include align-width--full-bleed;
+    }
+
+    &[data-align='center'],
+    .aligncenter {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    &[data-align='wide'],
+    &.alignwide {
+        @include align-width--l;
+    }
+
+    &[data-align='full'],
+    .alignfull {
+        @include align-width--full-bleed;
+    }
+
+    .alignright {
+        @include align-width--right;
+    }
+
+    .alignleft {
+        @include align-width--left;
+    }
+
+    &:not(.rich-text) {
+        margin-top: var(--block--margin-top);
+        margin-bottom: var(--block--margin-bottom);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.editor-post-title__block .editor-post-title__input {
+    @include typestyle-h2;
+
+    margin-top: 0;
+}
+
+.mce-container {
+    > iframe {
+        margin: 0;
+    }
+}
+
+.mce-content-body {
+    @include no-first-last-margin;
+
+    margin: 10px;
+}
+
+//
+// Reset ACF styles
+//
+.acf-block-preview {
+    @include no-first-last-margin;
+}
+
+.acf-icon {
+    background-color: #fff;
+    color: #555d66;
+    text-decoration: none;
+
+    &:hover {
+        color: #0071a1;
+        text-decoration: none;
+    }
+}
+
+.acf-table {
+    box-sizing: content-box;
+}

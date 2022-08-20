@@ -1,0 +1,38 @@
+{
+    "extends": [
+        "stylelint-config-sass-guidelines",
+        "stylelint-config-idiomatic-order"
+    ],
+    "rules": {
+        "function-parentheses-space-inside": "never-single-line",
+        "order/properties-alphabetical-order": null,
+        "max-nesting-depth": null,
+        "selector-class-pattern": null,
+        "scss/at-import-partial-extension-blacklist": null,
+        "indentation": 4,
+        "length-zero-no-unit": null,
+        "max-empty-lines": [1, {"ignore": "comments"}],
+        "rule-empty-line-before": [
+            "always-multi-line",
+            {
+                "ignore": [
+                    "after-comment",
+                    "first-nested"
+                ]
+            }
+        ],
+        "at-rule-empty-line-before": [
+            "always",
+            {
+                "except": [
+                    "blockless-after-blockless",
+                    "first-nested"
+                ],
+                "ignore": [
+                    "after-comment"
+                ],
+                "ignoreAtRules": ["else"]
+            }
+        ]
+    }
+}

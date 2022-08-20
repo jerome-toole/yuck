@@ -1,0 +1,18 @@
+body {
+    --wp--admin-bar-height: 0px;
+
+    @include typestyle-base;
+
+    display: flex;
+    min-height: 100%;
+    flex-flow: column nowrap;
+
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    &.admin-bar {
+        --wp--admin-bar-height: 46px;
+
+        @media screen and (min-width:783px) {
+            --wp--admin-bar-height: 32px;
+        }
+    }
+}

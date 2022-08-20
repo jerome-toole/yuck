@@ -1,0 +1,245 @@
+.site-header__navigation {
+    --menu-item--gap: var(--space--s);
+    --menu-item--arrow-size: #{rem(5)};
+
+    // --submenu-item--gap: var(--space--s); // defaults to --menu-item--gap
+    --submenu--arrow-height: #{rem(10)};
+    --submenu--translate-y: #{rem(-5)}; // Transitions from on desktop reveal
+    --submenu--transition-duration: 200ms;
+    --submenu--transition-ease: ease-out;
+    --submenu--padding-x: 0;
+    --submenu--padding-y: var(--space--s);
+    --submenu--box-shadow: var(--box-shadow--2);
+    --submenu--border-radius: var(--border-radius--m);
+    --submenu--dropdown--max-width: #{rem(400)};
+    --submenu--dropdown--min-width: #{rem(275)};
+
+    $submenu-color: 'brand-2';
+
+    align-self: center;
+    padding: 0 var(--space--container-padding);
+
+    @include mq('site-header') {
+        --menu-item--gap: var(--space--m);
+        --submenu-item--gap: var(--space--xs);
+        --submenu--padding-x: var(--space--m);
+        --submenu--padding-y: var(--space--m);
+
+        display: flex;
+        height: 100%;
+        flex-flow: row nowrap;
+        padding: 0;
+    }
+
+    &__menu {
+        @include list-reset-hard;
+
+        display: grid;
+        justify-content: center;
+        gap: var(--menu-item--gap);
+        text-align: center;
+
+        @include mq('site-header') {
+            position: static;
+            justify-content: center;
+            border-bottom: 0;
+            grid-auto-flow: column;
+        }
+
+        ul {
+            @include list-reset-hard;
+        }
+
+        // li {}
+
+        // ---------------------------------------------------------------------
+        // Top level menu items
+        // ---------------------------------------------------------------------
+        > li {
+            @include mq('site-header') {
+                position: relative;
+                display: flex;
+                align-items: center;
+                border-top: 0;
+            }
+        }
+
+        // ---------------------------------------------------------------------
+        // Add some default styling for all links that dont have an override
+        // ---------------------------------------------------------------------
+        a {
+            @include link--2;
+
+            display: inline-flex;
+
+            @include mq($until: 'site-header') {
+                @include typestyle-h3;
+            }
+
+            &:not([href]) {
+                cursor: default;
+            }
+        }
+
+        // ---------------------------------------------------------------------
+        // Style the active menu item
+        // ---------------------------------------------------------------------
+        .current-menu-item {
+            > a {
+                &:not([href*='#']) {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        // ---------------------------------------------------------------------
+        // For menu items that have children
+        // ---------------------------------------------------------------------
+
+        .menu-item-has-children {
+            > a {
+                &::after {
+                    position: relative;
+                    align-self: center;
+                    border-top: calc(var(--menu-item--arrow-size) * 1.2) solid currentColor;
+                    border-right: var(--menu-item--arrow-size) solid transparent;
+                    border-left: var(--menu-item--arrow-size) solid transparent;
+                    margin-left: calc(var(--menu-item--arrow-size) * 1.5);
+                    content: '';
+                }
+            }
+
+            &:hover {
+                @include mq('site-header') {
+                    > .sub-menu {
+                        --submenu--translate-y: 0;
+
+                        display: block;
+                        opacity: 1;
+                        pointer-events: auto;
+                        visibility: visible;
+                    }
+                }
+
+                > a {
+                    // background-color: var(--link--background-color--hover);
+                    color: var(--link--color--hover);
+                }
+            }
+
+            &.is-active {
+                > .sub-menu {
+                    --submenu--translate-y: 0;
+
+                    display: block;
+                    opacity: 1;
+                    pointer-events: auto;
+                    visibility: visible;
+                }
+
+                > a {
+                    // background-color: var(--link--background-color--hover);
+                    color: var(--link--color--hover);
+                }
+            }
+        }
+    }
+
+    // ---------------------------------------------------------------------
+    // Default styling for all submenus
+    // ---------------------------------------------------------------------
+    .sub-menu {
+        display: none;
+        margin-top: var(--menu-item--gap);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+            opacity var(--submenu--transition-duration) var(--submenu--transition-ease),
+            transform var(--submenu--transition-duration) var(--submenu--transition-ease),
+            visibility var(--submenu--transition-duration);
+        visibility: hidden;
+
+        @include mq('site-header') {
+            @include color-context($submenu-color);
+        }
+
+        a {
+            @include mq($until: 'site-header') {
+                @include typestyle-h4;
+            }
+        }
+
+        li {
+            display: block;
+        }
+
+        &__inner {
+            padding-bottom: calc(var(--menu-item--gap) * 0.5);
+
+            @include mq('site-header') {
+                padding-bottom: 0;
+            }
+        }
+
+        // ---------------------------------------------------------------------
+        // Top level submenu only
+        // ---------------------------------------------------------------------
+        &--depth-0 {
+            @include mq('site-header') {
+                position: absolute;
+                top: calc(100% + var(--submenu--arrow-height));
+                left: 50%;
+                display: block;
+                min-width: var(--submenu--dropdown--min-width);
+                max-width: var(--submenu--dropdown--max-width);
+                margin-top: 0;
+                background: var(--color--background);
+                border-radius: var(--submenu--border-radius);
+                box-shadow: var(--submenu--box-shadow);
+                transform: translate(-50%, var(--submenu--translate-y));
+
+                // Create a small arrow at the top of the submenu
+                &::before {
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    width: var(--submenu--arrow-height);
+                    height: var(--submenu--arrow-height);
+                    background: var(--color--background);
+                    content: '';
+                    transform: scaleX(1.3) translate(-50%, -50%) rotate(45deg);
+                }
+
+                // Fills in the gap between the menu item and the
+                // dropdown so that the mouse doesn't lose hover
+                // going between them.
+                &::after {
+                    position: absolute;
+                    top: calc(var(--submenu--arrow-height) * -1);
+                    left: 0;
+                    width: 100%;
+                    height: var(--submenu--arrow-height);
+                    content: '';
+                    opacity: 0;
+                }
+            }
+
+            > .sub-menu__inner {
+                display: grid;
+                padding-left: var(--submenu--padding-x);
+                gap: var(--submenu-item--gap, var(--menu-item--gap));
+
+                @include mq('site-header') {
+                    padding: var(--submenu--padding-y) var(--submenu--padding-x);
+                }
+            }
+        }
+
+        // ---------------------------------------------------------------------
+        // Nested submenu -- depth 1
+        // ---------------------------------------------------------------------
+        &--depth-1 {
+            margin-top: var(--submenu-item--gap, var(--menu-item--gap));
+        }
+    }
+}

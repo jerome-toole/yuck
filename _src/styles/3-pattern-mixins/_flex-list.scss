@@ -1,0 +1,8 @@
+@mixin flex-list {
+    @include list-reset-hard;
+    @include flex-grid;
+    @include flex-grid--auto;
+
+    align-items: center;
+    justify-content: flex-start;
+}

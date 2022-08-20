@@ -1,0 +1,99 @@
+@import '../../core';
+
+.accordion {
+    --accordion--items--border-y: var(--border-width--s) solid hsla(var(--color--brand-1--hsl), 0.15);
+    --accordion--item--padding-y: var(--space--s);
+    --accordion--item--panel--padding-y: var(--space--s);
+    --accordion--button--size: #{rem(35)};
+    --accordion--icon--size: #{rem(12)};
+
+    $this: &;
+
+    &__inner {
+        @include align-width--s(false);
+    }
+
+    &__header {
+        @include no-first-last-margin;
+
+        margin-bottom: var(--block--header--margin-bottom);
+    }
+
+    &__heading {
+        @include align-width--xxs(false);
+
+        text-align: var(--block--header--alignment);
+    }
+
+    &__items {
+        border-top: var(--accordion--items--border-y);
+    }
+
+    &__item {
+        border-bottom: var(--accordion--items--border-y);
+
+        &__heading {
+            @include align-width--xxs;
+
+            padding: 0;
+            margin: 0;
+        }
+
+        &__header {
+            @include button-reset-hard;
+
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--accordion--item--padding-y) 0;
+            margin: 0;
+            background: none;
+            color: var(--color--foreground);
+            text-align: left;
+
+            &:hover {
+                #{$this}__item__button {
+                    border-color: var(--button--border-color--hover);
+                    background-color: var(--button--background-color--hover);
+                    color: var(--button--color--hover);
+                }
+            }
+
+            &[aria-expanded='true'] {
+                #{$this}__item__button {
+                    border-color: var(--button--border-color--hover);
+                    background-color: var(--button--background-color--hover);
+                    color: var(--button--color--hover);
+
+                    &::after {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+
+        &__button {
+            --button--size: var(--accordion--button--size);
+            --mask-icon--size: var(--accordion--icon--size);
+
+            @include button--theme-3;
+
+            margin-left: var(--space--s);
+
+            &::after {
+                mask-image: url(#{asset-path('images/icons/chevron-down.svg')});
+                transition: transition(transform);
+            }
+        }
+
+        &__panel {
+            &-inner {
+                @include no-first-last-margin;
+
+                max-width: var(--width--xs);
+                padding-bottom: var(--accordion--item--panel--padding-y);
+            }
+        }
+    }
+}

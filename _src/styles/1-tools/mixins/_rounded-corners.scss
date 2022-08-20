@@ -1,0 +1,6 @@
+@mixin rounded-corners {
+    @if $rounded-corners {
+        overflow: hidden;
+        border-radius: var(--border-radius--s);
+    }
+}

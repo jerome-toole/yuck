@@ -1,0 +1,16 @@
+.wp-block-group {
+    @include no-first-last-margin;
+
+    &.has-background {
+        padding: var(--block--padding-y) var(--block--padding-x);
+    }
+
+    &.alignfull,
+    &.alignwide {
+        padding: var(--space--responsive--xl) var(--block--padding-x);
+
+        > * {
+            @include align-width--s(false);
+        }
+    }
+}

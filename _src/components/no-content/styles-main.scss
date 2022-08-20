@@ -1,0 +1,10 @@
+.no-content {
+    &__message {
+        @include typestyle-h4;
+
+        max-width: var(--width--xs);
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+}

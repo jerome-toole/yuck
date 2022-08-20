@@ -1,0 +1,123 @@
+@mixin button {
+    --focus--color: var(--button--border-color);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--button--padding-y) var(--button--padding-x);
+    border-width: var(--button--border-width);
+    border-style: solid;
+    border-color: var(--button--border-color);
+    background-color: var(--button--background-color);
+    border-radius: var(--button--border-radius);
+    color: var(--button--color);
+    cursor: pointer;
+    font-size: var(--button--font-size, inherit);
+    gap: var(--button--gap);
+    line-height: inherit;
+    text-align: center;
+    text-decoration: none; // [1]
+    transition: transition(color, background-color, border-color, box-shadow, transform);
+    user-select: none;
+
+    @include interact {
+        border-color: var(--button--border-color--hover);
+        background-color: var(--button--background-color--hover);
+        color: var(--button--color--hover);
+        text-decoration: none;
+    }
+
+    &:focus {
+        @include focus--1;
+    }
+
+    .has-brand-1-background-color &:not(.has-background) {
+        --button--background-color--hover: var(--color--brand-1);
+        --button--border-color--hover: var(--color--brand-2);
+    }
+
+    .has-brand-2-background-color &:not(.has-background) {
+        @include button--theme-2;
+    }
+}
+
+@mixin button--theme-2 {
+    --button--background-color: var(--color--brand-5);
+    --button--border-color: var(--color--brand-5);
+    --button--color: var(--color--brand-2);
+
+    --button--background-color--hover: var(--color--brand-1);
+    --button--border-color--hover: var(--color--brand-1);
+    --button--color--hover: var(--color--brand-2);
+}
+
+@mixin button--theme-3 {
+    --button--background-color: var(--color--brand-4);
+    --button--border-color: var(--color--brand-4);
+    --button--color: var(--color--white);
+
+    --button--background-color--hover: hsl(
+        var(--color--brand-4--h),
+        calc(var(--color--brand-4--s) * 0.75),
+        calc(var(--color--brand-4--l) * 0.75)
+    );
+    --button--border-color--hover: hsl(
+        var(--color--brand-4--h),
+        calc(var(--color--brand-4--s) * 0.75),
+        calc(var(--color--brand-4--l) * 0.75)
+    );
+    --button--color--hover: var(--color--white);
+}
+
+@mixin button--small {
+    --button--padding-y: var(--button--small--padding-y);
+    --button--padding-x: var(--button--small--padding-x);
+}
+
+@mixin button--label {
+    @include button--small;
+    @include typestyle-small;
+}
+
+// Used for square buttons containing a single number or icon
+@mixin button--square {
+    min-width: var(--button--size, 2em);
+    min-height: var(--button--size, 2em);
+    padding: 0 0.3em;
+    border-radius: var(--border-radius--s);
+}
+
+@mixin button--arrow {
+    --button--icon-size: 0.9em;
+
+    @include button--with-icon;
+
+    @include interact {
+        &::after {
+            transform: translateX(15%);
+        }
+    }
+
+    &::after {
+        mask-image: url(#{asset-path('images/icons/chevron-right.svg')});
+        transform: translateX(0);
+        transition: transition(transform);
+    }
+}
+
+@mixin button--icon($pseudo: after) {
+    @include mask-icon($pseudo: after, $position: 'absolute');
+
+    position: relative;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+@mixin button--with-icon($pseudo: after, $transition: false) {
+    @include mask-icon;
+
+    &::#{$pseudo} {
+        width: var(--button--icon-size, 1em);
+        height: var(--button--icon-size, 1em);
+    }
+}

@@ -1,0 +1,26 @@
+@charset 'UTF-8';
+
+/// Generates a transition value for multiple properties in line line
+/// Useful for reducing the amount of code and keeping transitions consistent between uses
+///
+/// @param {string} $properties - The properties to transform
+///
+/// @example scss
+///     transition: transition(opacity);
+///
+/// @example scss
+///     transition: transition(opacity, background-color);
+///
+/// @access public
+
+@function transition($properties...) {
+    $transitions-string: ();
+
+    @each $property in $properties {
+        $transitions-string: append($transitions-string,
+        $property var(--transition--duration) var(--transition--ease) 0s,
+        comma);
+    }
+
+    @return $transitions-string;
+}

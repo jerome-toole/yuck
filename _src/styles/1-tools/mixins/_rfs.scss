@@ -1,0 +1,8 @@
+@charset 'UTF-8';
+
+// Responsive font-size
+// Fluidly increases the font-size from the min to the max between the
+// global --fluid-min-width and --fluid-max-width screen sizes.
+@function rfs($min, $max) {
+    @return ru($min, $max, '1rem');
+}

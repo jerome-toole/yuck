@@ -1,0 +1,50 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    caption {
+        margin-bottom: calc(var(--space--base) / 2);
+        text-align: center;
+    }
+}
+
+thead {
+    border-bottom: 1px solid currentColor;
+}
+
+tr {
+    border-bottom: 1px solid currentColor;
+
+    &:last-child {
+        border-bottom: 0;
+    }
+}
+
+td,
+th {
+    padding: 0.25rem 0.5rem;
+
+    // The specificity of using not last child is higher than it should be
+    // Therefore we add the border everywhere and then remove it only when we
+    // don't want it. That way its easy to over-ride when we don't want it
+    border-right: 1px solid currentColor;
+
+    // On mobile tables cause an overflow when they are too wide. Lets break the
+    // text to address it
+    word-break: break-all;
+
+    &:last-child {
+        border-right: 0;
+    }
+}
+
+th {
+    font-weight: inherit;
+    text-align: inherit;
+}
+
+tfoot {
+    tr {
+        border-top: 1px solid currentColor;
+    }
+}

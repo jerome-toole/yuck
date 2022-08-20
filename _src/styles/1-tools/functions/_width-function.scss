@@ -1,0 +1,19 @@
+@charset 'UTF-8';
+
+/// Helper function to retrieve a space value defined in variables.
+/// Useful for removing random spacing used in the code base
+///
+/// @param {string} $space - The name of the space as defined in the sass map
+///
+/// @example scss
+///     margin-top: var(--space--m);
+///
+/// @access public
+
+@function width($width) {
+    @if map-has-key($widths, $width) == false {
+        @error 'Width not defined: `#{$width}`';
+    }
+
+    @return map-get($widths, $width);
+}

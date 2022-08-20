@@ -1,0 +1,184 @@
+.g-card {
+    --g-card--max-width: #{rem(400)};
+    --g-card--media--ratio: 3 / 2;
+    // --g-card--outer-padding-x: var(--space--responsive--s);
+    // --g-card--outer-padding-y: var(--space--responsive--s);
+    --g-card--inner-padding-x: var(--space--responsive--s);
+    --g-card--inner-padding-y: var(--space--responsive--s);
+    --g-card--media--border-radius: 0;
+    --g-card--box-shadow: var(--box-shadow--1);
+    --g-card--box-shadow--hover: var(--box-shadow--1--hover);
+    --g-card--border-radius: var(--border-radius--s);
+    --g-card--transition-duration: 800ms;
+    --g-card--transition-ease: var(--transition--ease);
+
+    $this: &;
+    $internal-z-index: 100; // Local stacking.
+
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    max-width: var(--g-card--max-width, none);
+    flex-direction: column;
+    padding: var(--g-card--outer-padding-y) var(--g-card--outer-padding-x);
+    isolation: isolate; // Create local stacking context.
+    text-align: center;
+    transition:
+        box-shadow
+        var(--g-card--transition-duration)
+        var(--g-card--transition-ease);
+
+    &[class*='has-background'] {
+        background-color: var(--color--background);
+        border-radius: var(--g-card--border-radius);
+        box-shadow: var(--g-card--box-shadow);
+    }
+
+    &.has-link {
+        @include interact {
+            &[class*='has-background'] {
+                box-shadow: var(--g-card--box-shadow--hover);
+            }
+
+            &:not(.has-embed) {
+                #{$this}__image-inner {
+                    > * {
+                        transform: scale(1.04);
+                    }
+                }
+            }
+        }
+    }
+
+    &__inner {
+        display: flex;
+        height: 100%;
+        flex-flow: column nowrap;
+        padding: var(--g-card--inner-padding-y) var(--g-card--inner-padding-x);
+        padding-top: var(--space--s);
+
+        > *:not(#{$this}__header) {
+            z-index: $internal-z-index * 2; // Above card link pseudo-element.
+        }
+    }
+
+    &__header {
+        flex: 1;
+    }
+
+    &__heading {
+        @include typestyle-h5;
+
+        margin-top: 0;
+        margin-bottom: 0;
+
+        a {
+            // Make the whole card a clickable link. Should sit below any other
+            // interactive elements, e.g. meta, embed buttons, etc.
+            &::before {
+                position: absolute;
+                z-index: $internal-z-index; // Below other interactive elements.
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                content: '';
+            }
+        }
+    }
+
+    &__content {
+        @include no-first-last-margin;
+
+        flex: 1;
+        margin-top: var(--space--xxs);
+    }
+
+    &__meta {
+        @include no-first-last-margin;
+
+        margin-top: var(--space--xxs);
+    }
+
+    &__image {
+        width: 100%;
+        align-self: center;
+        order: -1;
+
+        &-inner {
+            overflow: hidden;
+            aspect-ratio: var(--g-card--media--ratio);
+            border-radius: var(--g-card--media--border-radius);
+
+            > * {
+                object-fit: var(--g-card--image--object-fit, cover);
+                transition: transform
+                    var(--g-card--transition-duration)
+                    var(--g-card--transition-ease);
+            }
+        }
+
+    }
+
+    &__labels {
+        margin-top: var(--space--xxs);
+
+        &__items {
+            --grid--row-gap: var(--space--xxs);
+            --grid--column-gap: var(--space--xxs);
+
+            @include flex-list;
+        }
+    }
+
+    &__read-more {
+        align-self: center;
+        margin-top: var(--space--xs);
+    }
+
+    &.has-embed {
+        .g-card__image {
+            @include responsive-embed;
+
+            z-index: $internal-z-index * 2; // Above card link pseudo-element.
+        }
+    }
+
+    &--type--article {
+        --g-card--inner-padding-x: var(--space--s);
+        --g-card--inner-padding-y: var(--space--s);
+
+        text-align: left;
+
+        #{$this}__heading {
+            @include typestyle-h4;
+        }
+
+        #{$this}__read-more {
+            align-self: flex-start;
+        }
+    }
+
+    // Alternate style with a rounded, inset image.
+    &--type--icon {
+        --g-card--max-width: #{rem(300)};
+        --g-card--inner-padding-x: 0;
+        --g-card--inner-padding-y: 0;
+        --g-card--outer-padding-x: 0;
+        --g-card--outer-padding-y: 0;
+        --g-card--media--ratio: 1 / 1;
+        --g-card--media--border-radius: 0;
+        --g-card--box-shadow: 0;
+        --g-card--box-shadow--hover: 0;
+
+        text-align: center;
+
+        #{$this}__heading {
+            @include typestyle-h5;
+        }
+
+        #{$this}__image {
+            max-width: rem(150);
+        }
+    }
+}

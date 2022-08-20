@@ -1,0 +1,10 @@
+html {
+    @include alias-text;
+
+    height: 100%;
+    background-color: var(--color--background);
+    color: var(--color--foreground);
+    overflow-wrap: anywhere;
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--site--scroll-padding-top);
+}

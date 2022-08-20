@@ -1,0 +1,21 @@
+// Define our font-face stacks here.
+// Included in /elements/fonts
+@mixin font-variables {
+    @include system-fonts;
+
+    @font-face {
+        font-display: swap;
+        font-family: 'Lora';
+        font-style: normal;
+        font-weight: normal;
+        src: url('./static/subset-Lora-Regular.woff2') format('woff2');
+    }
+
+    @font-face {
+        font-display: swap;
+        font-family: 'Lora';
+        font-style: italic;
+        font-weight: normal;
+        src: url('./static/subset-Lora-Italic.woff2') format('woff2');
+    }
+}

@@ -1,0 +1,7 @@
+.img-fit {
+    @include object-fit;
+
+    > * {
+        @include object-fit-asset;
+    }
+}

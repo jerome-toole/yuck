@@ -1,0 +1,26 @@
+// ----------------------------------------------
+// Variables
+// ----------------------------------------------
+@import './mq-variables'; // Loaded first - used in other variables files.
+@import './button-variables';
+@import './color-variables';
+@import './font-variables';
+@import './form-variables';
+@import './global-variables';
+@import './space-variables';
+@import './type-variables';
+// @import './typescale-variables';
+@import './width-variables';
+@import './z-index-variables';
+
+@mixin output-custom-properties {
+    @include global-variables;
+    @include color-variables;
+    @include width-variables;
+    @include space-variables;
+    // @include typescale-variables;
+    @include type-variables;
+    @include button-variables;
+    @include form-variables;
+    @include z-index-variables;
+}

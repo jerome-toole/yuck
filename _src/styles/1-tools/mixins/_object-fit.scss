@@ -1,0 +1,37 @@
+@charset 'UTF-8';
+
+/// The image fit class makes a real image behave like a background image.
+/// This class alone does not make it work, a padding needs to be added as
+/// well so that it has a height to work with.
+///
+/// @example scss
+///    .img-fit {
+///        @include object-fit;
+///    }
+///
+///    .post__image {
+///        padding-top: aspect-ratio(1 / 1);
+///    }
+///
+/// @example html
+///    <div class="post__image img-fit">
+///        <img src='...' alt='...'>
+///    </div>
+///
+/// @access public
+
+@mixin object-fit {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+@mixin object-fit-asset {
+    // Making the image fill the available space
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

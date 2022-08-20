@@ -1,0 +1,16 @@
+{
+    // Override environment from root config.
+    "extends": "../.eslintrc.json",
+    "env": {
+        "browser": false
+    },
+    "rules" : {
+        // Add rule to root config rules to ignore devDependancies errors in this directory only.
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": true
+            }
+        ]
+    }
+}

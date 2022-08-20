@@ -1,0 +1,9 @@
+{
+    "short_name": "Yuck 2 Yum",
+    "name": "Yuck 2 Yum",
+    "start_url": "/",
+    "background_color": "#3367D6",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#3367D6"
+}

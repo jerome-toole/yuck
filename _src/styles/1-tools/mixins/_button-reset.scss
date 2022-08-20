@@ -1,0 +1,42 @@
+@charset 'UTF-8';
+
+/// Reset the default styles applied to buttons
+///
+/// @example scss
+///    @include button-reset;
+///
+/// @access public
+
+// TODO refine button-reset and document usage
+@mixin button-reset {
+    // Remove default button styles
+    border: 0;
+    cursor: pointer;
+}
+
+@mixin button-reset-hard {
+    // Remove our button styles
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    border-radius: 0;
+    color: inherit;
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    text-transform: inherit;
+
+    @include interact {
+        background-color: transparent;
+        color: inherit;
+    }
+
+    &:focus {
+        box-shadow: unset;
+        outline-width: 5px;
+    }
+}

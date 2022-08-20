@@ -1,0 +1,20 @@
+.wp-block-buttons {
+    @include flex-list;
+}
+
+.wp-block-button {
+    &__link {
+        @include button;
+    }
+
+    &.aligncenter {
+        margin-top: var(--space--base);
+        margin-bottom: var(--space--base);
+    }
+
+    &.alignleft,
+    &.alignright {
+        width: auto;
+        margin-top: 0.4em;
+    }
+}

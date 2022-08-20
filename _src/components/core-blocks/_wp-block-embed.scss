@@ -1,0 +1,28 @@
+.wp-block-embed {
+    @include media-embed;
+
+    &__wrapper {
+        > * {
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        > iframe {
+            margin: 0 auto;
+        }
+    }
+
+    &:not(.alignfull) {
+        iframe {
+            @include box-shadow;
+            @include rounded-corners;
+        }
+    }
+
+    &.wp-block-embed-twitter {
+        iframe {
+            border-radius: 0;
+            box-shadow: none;
+        }
+    }
+}

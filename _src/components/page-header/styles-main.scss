@@ -1,0 +1,154 @@
+.page-header {
+    --page-header--spacing: var(--space--s);
+    --page-header--inset-image--size: #{rem(100)};
+    --page-header--padding-top: var(--space--responsive--m);
+    --page-header--padding-bottom: var(--space--responsive--xs);
+    --page-header--heading--max-width: 17em;
+    --page-header--subheading--max-width: 40em;
+    --page-header--align: center;
+    --page-header--text-align: center;
+    --page-header--grid-alignment-x: center;
+    --page-header--overlay-opacity: 20%;
+
+    $this: &;
+    $internal-z-index: 100; // Local stacking.
+
+    @include no-first-last-margin;
+
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: var(--width--responsive--l);
+    isolation: isolate; // Create local stacking context.
+    justify-items: var(--page-header--grid-alignment-x);
+
+    @include mq(large) {
+        --page-header--inset-image--size: #{rem(150)};
+    }
+
+    &.has-background {
+        --page-header--padding-top: var(--space--layout);
+        --page-header--padding-bottom: var(--space--layout);
+    }
+
+    &__inner {
+        position: relative;
+        z-index: $internal-z-index; // Above background image.
+        display: grid;
+        flex-flow: column nowrap;
+        padding-top: var(--page-header--padding-top);
+        padding-bottom: var(--page-header--padding-bottom);
+        justify-items: var(--page-header--grid-alignment-x);
+        text-align: var(--page-header--text-align);
+    }
+
+    &__heading {
+        @include typestyle-h1;
+
+        max-width: var(--page-header--heading--max-width);
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    &__subheading {
+        @include no-first-last-margin;
+
+        max-width: var(--page-header--subheading--max-width);
+        margin-top: var(--page-header--spacing, var(--space--base));
+    }
+
+    &__back-link {
+        position: absolute;
+        z-index: $internal-z-index; // Above background image.
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-top: var(--space--responsive--xs);
+        text-align: left;
+
+        &__inner {
+            @include align-width--l;
+        }
+
+        a {
+            --link--text-decoration: none;
+            --link--text-decoration--hover: underline;
+
+            @include link--foreground;
+        }
+    }
+
+    &__meta {
+        @include typestyle-meta;
+
+        margin-top: var(--page-header--spacing, var(--space--base));
+    }
+
+    &__labels {
+        --grid--row-gap: var(--space--xxs);
+        --grid--column-gap: var(--space--xxs);
+
+        margin-top: var(--page-header--spacing, var(--space--base));
+
+        .flex-list {
+            justify-content: center;
+        }
+    }
+
+    &__buttons {
+        --grid--row-gap: var(--space--xxs);
+        --grid--column-gap: var(--space--xxs);
+
+        margin-top: var(--page-header--spacing, var(--space--base));
+
+        .flex-list {
+            justify-content: center;
+        }
+    }
+
+    &__inset-image {
+        margin-bottom: var(--space--base);
+
+        &-inner {
+            @include box-shadow;
+
+            width: var(--page-header--inset-image--size);
+            height: var(--page-header--inset-image--size);
+            margin-right: auto;
+            margin-left: auto;
+            border-radius: 999px;
+        }
+    }
+
+    &__background-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        &-inner {
+            width: 100%;
+            height: 100%;
+
+            &::after {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: var(--color--black);
+                content: '';
+                mix-blend-mode: multiply;
+                opacity: var(--page-header--overlay-opacity);
+            }
+        }
+    }
+
+    &--type--article {
+        #{$this}__heading {
+            @include typestyle-h2;
+        }
+    }
+}

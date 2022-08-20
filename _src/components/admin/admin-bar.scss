@@ -1,0 +1,25 @@
+/* stylelint-disable selector-max-id -- there must IDs here. */
+#wpadminbar {
+    .granola-ab-item {
+        // WordPress breakpoint.
+        @media screen and (max-width: 782px) {
+            display: block;
+        }
+
+        .ab-icon {
+            // WordPress breakpoint.
+            @media screen and (max-width: 782px) {
+                text-indent: 0;
+            }
+        }
+
+        &.granola-edit-template {
+            .ab-icon {
+                &::before {
+                    top: 2px;
+                    content: '\f464';
+                }
+            }
+        }
+    }
+}

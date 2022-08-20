@@ -1,0 +1,40 @@
+@charset 'UTF-8';
+
+/// Remove the top margin applied to the first child of this element.
+///
+/// @example scss
+///    @include no-first-margin;
+///
+/// @access public
+
+@mixin no-first-margin {
+    > *:first-child {
+        margin-top: 0;
+    }
+}
+
+/// Remove the bottom margin applied to the last child of this element.
+///
+/// @example scss
+///    @include no-first-margin;
+///
+/// @access public
+
+@mixin no-last-margin {
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/// Remove the top margin from the first child element and bottom margin from
+/// the last child element.
+///
+/// @example scss
+///    @include no-first-last-margin;
+///
+/// @access public
+
+@mixin no-first-last-margin {
+    @include no-first-margin;
+    @include no-last-margin;
+}

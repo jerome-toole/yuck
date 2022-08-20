@@ -1,0 +1,80 @@
+@use 'sass:math';
+
+.blocks {
+    margin-top: var(--blocks--padding-top);
+    margin-bottom: var(--blocks--padding-bottom);
+
+    > *:first-child {
+        margin-top: 0;
+    }
+
+    > *:last-child {
+        margin-bottom: 0;
+    }
+
+    // Set default width for all child elements
+    > *:not(.alignwide):not(.alignfull):not(.alignright):not(.alignleft):not(.alignnone) {
+        max-width: var(--block--max-width);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    // Set up default layout spacing for blocks
+    > [class*='wp-block'] {
+        margin-top: var(--block--margin-top);
+        margin-right: auto;
+        margin-bottom: var(--block--margin-bottom);
+        margin-left: auto;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        // Anchor blocks together if they are both backgrounded and full-width
+        &[class*='has-background'].alignfull + [class*='has-background'].alignfull {
+            @include layout-margin-pull;
+        }
+
+        // Anchors the first block to the header if it is backgrounded and full-width
+        &[class*='has-background'].alignfull:first-child {
+            margin-top: calc(var(--blocks--padding-bottom) * -1);
+        }
+
+        // Anchors the last block to the footer if it is backgrounded and full-width
+        &[class*='has-background'].alignfull:last-child {
+            margin-bottom: calc(var(--blocks--padding-bottom) * -1);
+        }
+
+        &.anchor--top {
+            margin-top: 0;
+        }
+
+        &.anchor--top--half {
+            margin-top: calc(var(--block--margin-top) / 2);
+        }
+
+        &.anchor--top {
+            margin-top: 0;
+        }
+
+        &.anchor--bottom {
+            margin-bottom: 0;
+
+            + * {
+                margin-top: 0;
+            }
+        }
+
+        &.anchor--bottom--half {
+            margin-bottom: calc(var(--block--margin-bottom) / 2);
+
+            + * {
+                margin-top: calc(var(--block--margin-top) / 2);
+            }
+        }
+    }
+}

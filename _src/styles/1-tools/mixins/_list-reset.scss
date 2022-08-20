@@ -1,0 +1,32 @@
+@charset 'UTF-8';
+
+/// Remove default list styling applied by browsers but retain margins for flow
+///
+/// @example scss
+///    @include list-reset;
+///
+/// @access public
+
+@mixin list-reset {
+    padding-left: 0;
+    list-style: none;
+}
+
+/// Remove default list styling applied by browsers including margins
+///
+/// @example scss
+///    @include list-reset-hard;
+///
+/// @access public
+
+@mixin list-reset-hard {
+    @include list-reset;
+
+    margin-top: 0;
+    margin-bottom: 0;
+
+    li {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}

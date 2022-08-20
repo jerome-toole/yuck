@@ -1,0 +1,24 @@
+// .g-button is prefixed to avoid conflicts with ACF's .button in the editor.
+.g-button {
+    @include button;
+
+    &--small {
+        @include button--small;
+    }
+
+    &--label {
+        @include button--label;
+    }
+
+    &--square {
+        @include button--square;
+    }
+
+    &--icon {
+        @include button--icon;
+    }
+
+    &--arrow {
+        @include button--arrow;
+    }
+}

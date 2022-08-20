@@ -1,0 +1,17 @@
+.wp-block-separator {
+    --block--spacing--top: var(--space--responsive--m);
+    --block--spacing--bottom: var(--space--responsive--m);
+
+    $this: &;
+
+    width: 100%;
+    height: var(--hr--thickness, 2px);
+    background-color: var(--hr--color);
+    clear: both;
+
+    .blocks > & {
+        + * {
+            margin-top: 0;
+        }
+    }
+}

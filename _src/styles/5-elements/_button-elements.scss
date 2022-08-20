@@ -1,0 +1,6 @@
+button,
+[type=submit],
+[type=reset],
+[type=button] {
+    @include button-reset;
+}

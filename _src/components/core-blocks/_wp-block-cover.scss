@@ -1,0 +1,39 @@
+.wp-block-cover {
+    $this: &;
+
+    @include no-first-last-margin;
+    @include layout-margin;
+
+    min-height: unset;
+    padding: 0;
+
+    &__inner-container {
+        @include no-first-last-margin;
+
+        max-width: var(--block--max-width);
+        padding: var(--block--padding-y) var(--block--padding-x);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    &[class*='-background-color'] {
+        #{$this}__inner-container {
+            color: currentColor;
+        }
+    }
+
+    &.alignfull,
+    &.alignwide {
+        #{$this}__inner-container {
+            padding: var(--space--responsive--xl) var(--block--padding-x);
+            color: currentColor;
+        }
+    }
+
+    &:not(.alignfull) {
+        img {
+            @include rounded-corners;
+            @include box-shadow;
+        }
+    }
+}

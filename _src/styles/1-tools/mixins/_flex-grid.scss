@@ -1,0 +1,48 @@
+@charset 'UTF-8';
+
+/// Mimics grid gap behaviour by creating negative margins on the top and left
+/// of the flex container and then adding top and left margins to child elements.
+///
+/// In some contexts, the mixin must be used inside a wrapper or the negative
+/// margins will throw the layout off.
+///
+/// @example scss
+///    @include flex-grid-row;
+///
+/// @access public
+
+@mixin flex-grid {
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: var(--grid--column-gap);
+    row-gap: var(--grid--row-gap);
+
+    // Override child selectors used in mixins such as list-reset()
+    > *,
+    > :first-child,
+    > :last-child,
+    > * + * {
+        @include flex-grid-item;
+    }
+}
+
+@mixin flex-grid--auto {
+    > *,
+    > :first-child,
+    > :last-child,
+    > * + * {
+        width: auto;
+    }
+}
+
+/// Set items to fit a column width provided by --grid--columns and add the
+/// grid--gap between them
+///
+/// @example scss
+///    @include flex-grid-item;
+///
+/// @access public
+
+@mixin flex-grid-item {
+    width: calc((100% / var(--grid--columns)) - var(--grid--column-gap) + (var(--grid--column-gap) / var(--grid--columns)));
+}

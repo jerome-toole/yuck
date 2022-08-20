@@ -1,0 +1,86 @@
+@mixin align-width--xxs($responsive: true) {
+    @if ($responsive) {
+        max-width: var(--width--responsive--xxs);
+    } @else {
+        max-width: var(--width--xxs);
+    }
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@mixin align-width--xs($responsive: true) {
+    @if ($responsive) {
+        max-width: var(--width--responsive--s);
+    } @else {
+        max-width: var(--width--s);
+    }
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@mixin align-width--s($responsive: true) {
+    @if ($responsive) {
+        max-width: var(--width--responsive--s);
+    } @else {
+        max-width: var(--width--s);
+    }
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@mixin align-width--m($responsive: true) {
+    @if ($responsive) {
+        max-width: var(--width--responsive--m);
+    } @else {
+        max-width: var(--width--m);
+    }
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@mixin align-width--l($responsive: true) {
+    @if ($responsive) {
+        max-width: var(--width--responsive--l);
+    } @else {
+        max-width: var(--width--l);
+    }
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@mixin align-width--full-bleed {
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@mixin align-width--right {
+    max-width: var(--width--responsive--s);
+    margin: var(--space--responsive--s) auto;
+
+    @include mq(medium) {
+        max-width: calc(var(--width--s) / 2);
+        margin-top: var(--space--m);
+        margin-right: calc(50% - (var(--width--s) / 2));
+        margin-left: var(--space--m);
+        float: right;
+    }
+}
+
+@mixin align-width--left {
+    max-width: var(--width--responsive--s);
+    margin: var(--space--responsive--s) auto;
+
+    @include mq(medium) {
+        max-width: calc(var(--width--s) / 2);
+        margin-top: var(--space--m);
+        margin-right: var(--space--m);
+        margin-left: calc(50% - (var(--width--s) / 2));
+        float: left;
+    }
+}

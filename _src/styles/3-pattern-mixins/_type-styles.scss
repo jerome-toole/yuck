@@ -1,0 +1,74 @@
+// ---------------------------------------------------
+// Type Style Mixins
+// ---------------------------------------------------
+
+@mixin typestyle-base {
+    font-family: var(--type--1--font-family);
+    font-size: var(--type--font-size--base);
+    font-weight: var(--type--1--font-weight);
+    line-height: var(--type--1--line-height);
+}
+
+@mixin typestyle-small {
+    font-size: var(--type--font-size--small);
+}
+
+@mixin typestyle-meta {
+    font-size: var(--type--font-size--base);
+    line-height: 1.2;
+}
+
+@mixin heading-attributes {
+    font-family: var(--type--2--font-family);
+    font-weight: var(--type--2--font-weight);
+    line-height: var(--type--2--line-height);
+
+    // Make a tags that are children of headings inherit styling
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+@mixin typestyle-hero {
+    @include heading-attributes;
+
+    font-size: rfs(36, 85);
+    line-height: 1.2;
+}
+
+@mixin typestyle-h1 {
+    @include heading-attributes;
+
+    font-size: rfs(28, 55);
+}
+
+@mixin typestyle-h2 {
+    @include heading-attributes;
+
+    font-size: rfs(26, 44);
+}
+
+@mixin typestyle-h3 {
+    @include heading-attributes;
+
+    font-size: rfs(23, 35);
+}
+
+@mixin typestyle-h4 {
+    @include heading-attributes;
+
+    font-size: rfs(20, 28);
+}
+
+@mixin typestyle-h5 {
+    @include heading-attributes;
+
+    font-size: rfs(18, 22);
+}
+
+@mixin typestyle-h6 {
+    @include heading-attributes;
+
+    font-size: var(----type--font-size--base);
+}

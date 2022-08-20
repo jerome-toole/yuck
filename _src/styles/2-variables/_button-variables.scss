@@ -1,0 +1,23 @@
+@mixin button-variables {
+    // --button--font-size: #{rfs(18, 22)};
+
+    --button--padding-y: 0.5em;
+    --button--padding-x: 1.5em;
+
+    --button--border-width: var(--border-width--s);
+    --button--border-radius: 999px;
+
+    --button--background-color: var(--color--brand-2);
+    --button--border-color: var(--color--brand-2);
+    --button--color: var(--color--brand-1);
+
+    --button--background-color--hover: var(--color--brand-1);
+    --button--border-color--hover: var(--color--brand-1);
+    --button--color--hover: #{foreground-color('brand-1')};
+
+    --button--gap: 0.5em;
+
+    // Small Button
+    --button--small--padding-y: 0;
+    --button--small--padding-x: 0.7em;
+}

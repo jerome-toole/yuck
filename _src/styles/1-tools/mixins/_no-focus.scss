@@ -1,0 +1,18 @@
+@charset 'UTF-8';
+
+/// Remove default focus and active states applied by browsers. Be
+/// careful not to remove focus styles which are important for accessible
+/// navigation.
+///
+/// @example scss
+///    @include no-focus-be-careful;
+///
+/// @access public
+
+@mixin no-focus-be-careful {
+    &:focus,
+    &:active {
+        outline-style: none;
+        outline-width: 0;
+    }
+}

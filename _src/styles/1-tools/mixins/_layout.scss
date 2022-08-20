@@ -1,0 +1,89 @@
+@mixin layout-padding-top($mobile: var(--space--layout), $tablet: null, $desktop: null) {
+    padding-top: $mobile;
+
+    @if $tablet {
+        @include mq('medium') {
+            padding-top: $tablet;
+        }
+    }
+
+    @if $desktop {
+        @include mq('large') {
+            padding-top: $desktop;
+        }
+    }
+}
+
+@mixin layout-padding-bottom($mobile: var(--space--layout), $tablet: null, $desktop: null) {
+    padding-bottom: $mobile;
+
+    @if $tablet {
+        @include mq('medium') {
+            padding-bottom: $tablet;
+        }
+    }
+
+    @if $desktop {
+        @include mq('large') {
+            padding-bottom: $desktop;
+        }
+    }
+}
+
+@mixin layout-padding($mobile: var(--space--layout), $tablet: null, $desktop: null) {
+    @include layout-padding-top($mobile, $tablet, $desktop);
+    @include layout-padding-bottom($mobile, $tablet, $desktop);
+}
+
+@mixin layout-margin-top($mobile: var(--space--layout), $tablet: null, $desktop: null) {
+    margin-top: $mobile;
+
+    @if $tablet {
+        @include mq('medium') {
+            margin-top: $tablet;
+        }
+    }
+
+    @if $desktop {
+        @include mq('large') {
+            margin-top: $desktop;
+        }
+    }
+}
+
+@mixin layout-margin-bottom($mobile: var(--space--layout), $tablet: null, $desktop: null) {
+    margin-bottom: $mobile;
+
+    @if $tablet {
+        @include mq('medium') {
+            margin-bottom: $tablet;
+        }
+    }
+
+    @if $desktop {
+        @include mq('large') {
+            margin-bottom: $desktop;
+        }
+    }
+}
+
+@mixin layout-margin-pull($mobile: var(--space--layout), $tablet: null, $desktop: null) {
+    margin-top: calc(#{$mobile} * -1);
+
+    @if $tablet {
+        @include mq('medium') {
+            margin-top: calc(#{$tablet} * -1);
+        }
+    }
+
+    @if $desktop {
+        @include mq('large') {
+            margin-top: calc(#{$desktop} * -1);
+        }
+    }
+}
+
+@mixin layout-margin($mobile: var(--space--layout), $tablet: null, $desktop: null) {
+    @include layout-margin-top($mobile, $tablet, $desktop);
+    @include layout-margin-bottom($mobile, $tablet, $desktop);
+}

@@ -1,0 +1,99 @@
+@import '../../core';
+
+.pagination {
+    --block--margin-top: var(--space--base);
+    --block--margin-bottom: var(--space--base);
+}
+
+.nav-links {
+    --pagination--size: #{rem(35)};
+    --grid--column-gap: var(--space--xs);
+
+    @include flex-grid;
+    @include flex-grid--auto;
+
+    align-items: center;
+    justify-content: center;
+
+    @include mq(medium) {
+        --pagination--size: #{rem(35)};
+    }
+
+    > a,
+    > .current {
+        --button--background-color: var(--color--white);
+        --button--border-color: var(--color--white);
+        --button--color: var(--color--foreground);
+
+        --button--background-color--hover: var(--color--brand-2);
+        --button--border-color--hover: var(--color--brand-2);
+        --button--color--hover: var(--color--foreground);
+        --button--size: var(--pagination--size);
+
+        @include button;
+        @include button--square;
+        @include typestyle-h5;
+
+        box-shadow: var(--box-shadow--1);
+        font-size: rfs(14, 14.5);
+
+        @include interact {
+            box-shadow: var(--box-shadow--1--hover);
+        }
+    }
+
+    .current {
+        --button--background-color: var(--color--brand-2);
+        --button--border-color: var(--color--brand-2);
+        --button--color: var(--color--foreground);
+
+        --button--background-color--hover: var(--color--brand-2);
+        --button--border-color--hover: var(--color--brand-2);
+        --button--color--hover: var(--color--foreground);
+    }
+
+    .dots {
+        display: inline-flex;
+        min-width: var(--pagination--size);
+        min-height: var(--pagination--size);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .next,
+    .prev {
+        @include button--icon;
+        @include button--square;
+
+        display: inline-block;
+
+        &::after {
+            mask-image: url(#{asset-path('images/icons/chevron-right.svg')});
+            mask-size: #{rem(9)};
+        }
+    }
+
+    .next {
+        --button--background-color: var(--color--brand-4);
+        --button--border-color: var(--color--brand-4);
+        --button--color: var(--color--white);
+
+        --button--background-color--hover: var(--color--brand-4);
+        --button--border-color--hover: var(--color--brand-4);
+        --button--color--hover: var(--color--foreground);
+    }
+
+    .prev {
+        --button--background-color: var(--color--brand-2);
+        --button--border-color: var(--color--brand-2);
+        --button--color: var(--color--white);
+
+        --button--background-color--hover: var(--color--brand-2);
+        --button--border-color--hover: var(--color--brand-2);
+        --button--color--hover: var(--color--foreground);
+
+        &::after {
+            transform: rotate(180deg);
+        }
+    }
+}

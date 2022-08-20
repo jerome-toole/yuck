@@ -1,0 +1,134 @@
+@use 'sass:color';
+
+// ---------------------------------------------------
+// Colors
+// ---------------------------------------------------
+// Gutenberg color palette colors also need to be set in granola/config.php
+
+$colors: (
+    'base': (
+        'blue': (
+            'color': #0047af,
+            'foreground': var(--color--white),
+            'properties': (
+                '--link--color': var(--color--white),
+                '--link--color--hover': var(--color--white),
+            ),
+        ),
+        'pink': (
+            'color': #f6cbda,
+        ),
+        'yellow': (
+            'color': #f4be44,
+        ),
+        'lightblue': (
+            'color': #87d1d5,
+        ),
+        'red': (
+            'color': #b6435d,
+            'foreground': var(--color--white),
+            'properties': (
+                '--link--color': var(--color--white),
+                '--link--color--hover': var(--color--white),
+            ),
+        ),
+        'white': (
+            'color': #fff,
+            'foreground': var(--color--brand-1),
+            'properties': (
+                '--link--color': var(--color--brand-5),
+                '--link--color--hover': var(--color--brand-5),
+            ),
+        ),
+        'black': (
+            'color': #222,
+            'foreground': var(--color--white),
+            'properties': (
+                '--link--color': var(--color--white),
+                '--link--color--hover': var(--color--white),
+            ),
+        ),
+        'grey': (
+            'color': #444,
+            'foreground': var(--color--white),
+            'properties': (
+                '--link--color': var(--color--white),
+                '--link--color--hover': var(--color--white),
+            ),
+        ),
+        'brand-1': (
+            'namedColor': 'blue',
+        ),
+        'brand-2': (
+            'namedColor': 'pink',
+        ),
+        'brand-3': (
+            'namedColor': 'yellow',
+        ),
+        'brand-4': (
+            'namedColor': 'lightblue',
+        ),
+        'brand-5': (
+            'namedColor': 'red',
+        ),
+        'foreground': (
+            'namedColor': 'blue',
+        ),
+        'background': (
+            'namedColor': 'white',
+        ),
+        'style-guide': (
+            'color': #d4444d,
+        ),
+        'error': (
+            'namedColor': 'red',
+        )
+    ),
+    // Define alternative themes here
+    //
+    // 'darkmode': (
+    //     'brand-1': (
+    //         'color': #0047af,
+    //     ),
+    //     'brand-2': (
+    //         'color': #f6cbda,
+    //     ),
+    //     'brand-3': (
+    //         'color': #f4be44,
+    //     ),
+    //     'foreground': (
+    //         'color': #fff,
+    //     ),
+    //     'background': (
+    //         'color': #222,
+    //     ),
+    // )
+);
+
+// Output colors at :root or under theme classes.
+// Color custom properties look like this: --color--brand-1
+@mixin color-variables {
+    @each $theme, $colormaps in $colors {
+        $theme-name: nth($theme, 1);
+        $selector: '.theme--#{$theme}';
+
+        @if $theme == 'base' {
+            $selector: '&';
+        }
+
+        #{$selector} {
+            @each $colorname, $colormap in $colormaps {
+                $propname: '--color--#{$colorname}';
+
+                $value: color($colorname, $theme);
+
+                #{$propname}: #{$value};
+                #{$propname}--hsl: #{hsl-from-hex($value)};
+
+                #{$propname}--h: #{color.hue($value)};
+                #{$propname}--s: #{color.saturation($value)};
+                #{$propname}--l: #{color.lightness($value)};
+            }
+        }
+    }
+}
