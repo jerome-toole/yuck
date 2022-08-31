@@ -7,6 +7,12 @@
 
 $colors: (
     'base': (
+        'lightgreen': (
+            'color': #def3d6,
+        ),
+        'darkgreen': (
+            'color': #7cb18e,
+        ),
         'blue': (
             'color': #0047af,
             'foreground': var(--color--white),
@@ -16,7 +22,7 @@ $colors: (
             ),
         ),
         'pink': (
-            'color': #f6cbda,
+            'color': #f35178,
         ),
         'yellow': (
             'color': #f4be44,
@@ -41,7 +47,7 @@ $colors: (
             ),
         ),
         'black': (
-            'color': #222,
+            'color': #050404,
             'foreground': var(--color--white),
             'properties': (
                 '--link--color': var(--color--white),
@@ -49,7 +55,7 @@ $colors: (
             ),
         ),
         'grey': (
-            'color': #444,
+            'color': #f5f5f5,
             'foreground': var(--color--white),
             'properties': (
                 '--link--color': var(--color--white),
@@ -57,22 +63,22 @@ $colors: (
             ),
         ),
         'brand-1': (
-            'namedColor': 'blue',
+            'namedColor': 'darkgreen',
         ),
         'brand-2': (
             'namedColor': 'pink',
         ),
         'brand-3': (
-            'namedColor': 'yellow',
+            'namedColor': 'lightgreen',
         ),
         'brand-4': (
-            'namedColor': 'lightblue',
+            'namedColor': 'grey',
         ),
         'brand-5': (
             'namedColor': 'red',
         ),
         'foreground': (
-            'namedColor': 'blue',
+            'namedColor': 'black',
         ),
         'background': (
             'namedColor': 'white',

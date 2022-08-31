@@ -138,9 +138,9 @@
                 right: 0;
                 bottom: 0;
                 left: 0;
-                background-color: var(--color--black);
+                background-color: var(--color--brand-3);
                 content: '';
-                mix-blend-mode: multiply;
+                mix-blend-mode: screen;
                 opacity: var(--page-header--overlay-opacity);
             }
         }
