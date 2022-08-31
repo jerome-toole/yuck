@@ -5,17 +5,17 @@
 
     @font-face {
         font-display: swap;
-        font-family: 'Lora';
+        font-family: 'Syncopate';
         font-style: normal;
         font-weight: normal;
-        src: url('./static/subset-Lora-Regular.woff2') format('woff2');
+        src: url('./static/subset-Syncopate-Regular.woff2') format('woff2');
     }
 
     @font-face {
         font-display: swap;
-        font-family: 'Lora';
-        font-style: italic;
-        font-weight: normal;
-        src: url('./static/subset-Lora-Italic.woff2') format('woff2');
+        font-family: 'Syncopate';
+        font-style: normal;
+        font-weight: bold;
+        src: url('./static/subset-Syncopate-Bold.woff2') format('woff2');
     }
 }
