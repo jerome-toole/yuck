@@ -3,6 +3,7 @@
         <meta charset="UTF-8" />
 
         <!-- GRAVITYFORMS -->
+        <script src="https://yuck-2-yum.test/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
         <script>
             var gform;gform||(document.addEventListener("gform_main_scripts_loaded",function(){gform.scriptsLoaded=!0}),window.addEventListener("DOMContentLoaded",function(){gform.domLoaded=!0}),gform={domLoaded:!1,scriptsLoaded:!1,initializeOnLoaded:function(o){gform.domLoaded&&gform.scriptsLoaded?o():!gform.domLoaded&&gform.scriptsLoaded?window.addEventListener("DOMContentLoaded",o):document.addEventListener("gform_main_scripts_loaded",o)},hooks:{action:{},filter:{}},addAction:function(o,n,r,t){gform.addHook("action",o,n,r,t)},addFilter:function(o,n,r,t){gform.addHook("filter",o,n,r,t)},doAction:function(o){gform.doHook("action",o,arguments)},applyFilters:function(o){return gform.doHook("filter",o,arguments)},removeAction:function(o,n){gform.removeHook("action",o,n)},removeFilter:function(o,n,r){gform.removeHook("filter",o,n,r)},addHook:function(o,n,r,t,i){null==gform.hooks[o][n]&&(gform.hooks[o][n]=[]);var e=gform.hooks[o][n];null==i&&(i=n+"_"+e.length),gform.hooks[o][n].push({tag:i,callable:r,priority:t=null==t?10:t})},doHook:function(n,o,r){var t;if(r=Array.prototype.slice.call(r,1),null!=gform.hooks[n][o]&&((o=gform.hooks[n][o]).sort(function(o,n){return o.priority-n.priority}),o.forEach(function(o){"function"!=typeof(t=o.callable)&&(t=window[t]),"action"==n?t.apply(null,r):r[0]=t.apply(null,r)})),"filter"==n)return r[0]},removeHook:function(o,n,t,i){var r;null!=gform.hooks[o][n]&&(r=(r=gform.hooks[o][n]).filter(function(o,n,r){return!!(null!=i&&i!=o.tag||null!=t&&t!=o.priority)}),gform.hooks[o][n]=r)}});
         </script>
@@ -354,8 +355,12 @@
         <link rel="stylesheet" id="granola-styles-css" href="https://yuck-2-yum.test/assets/main.css" media="all" />
 
         <!-- GRAVITY -->
-        <link rel="stylesheet" id="gform_basic-css" href="https://granola.test/wp-content/plugins/gravityforms/css/basic.min.css" media="all">
+        <link rel="stylesheet" id="gform_basic-css" href="https://yuck-2-yum.test/wp-content/plugins/gravityforms/css/basic.min.css" media="all">
         <!-- GRAVITY -->
+
+        <!-- SWIPER -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.js" integrity="sha512-V1mUBtsuFY9SNr+ptlCQAlPkhsH0RGLcazvOCFt415od2Bf9/YkdjXxZCdhrP/TVYsPeAWuHa+KYLbjNbeEnWg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- SWIPER -->
 
         <link rel="https://api.w.org/" href="https://yuck-2-yum.test/wp-json/" />
         <link rel="alternate" type="application/json" href="https://yuck-2-yum.test/wp-json/wp/v2/pages/104" />
@@ -410,6 +415,7 @@
             </div>
         </div>
         <a href="#main" target="" class="skip-link screen-reader-text"> Skip to content </a>
+
         <header class="site-header site-header--positioned">
             <div class="site-header__inner">
                 <div class="site-header__top">
@@ -529,18 +535,20 @@
         <main class="main" id="main">
             <article class="site-main post-104 page type-page status-publish hentry">
                 <header class="site-main__header">
-                    <div
-                        style="--page-header--overlay-opacity: 20%"
-                        class="page-header alignfull page-header--home has-brand-1-background-color has-background"
-                    >
+                    <div style="--page-header--overlay-opacity: 20%;" class="page-header alignfull page-header--home has-brand-1-background-color has-background has-background-image">
                         <div class="page-header__inner">
                             <h1 class="page-header__heading">Yuck.com</h1>
-
                             <div class="page-header__subheading">
                                 <p>
                                     Welcome to Granola, a starter theme for modern and performant
                                     WordPress development
                                 </p>
+                            </div>
+                        </div>
+
+                        <div class="page-header__background-image">
+                            <div class="page-header__background-image-inner img-fit">
+                                <img width="2500" height="1563" src="https://yuck-2-yum.test/wp-content/uploads/2022/06/434-2560x1600-1-2500x1563.jpeg" class="attachment-granola_super size-granola_super" alt="" srcset="https://yuck-2-yum.test/wp-content/uploads/2022/06/434-2560x1600-1-2500x1563.jpeg 2500w, https://yuck-2-yum.test/wp-content/uploads/2022/06/434-2560x1600-1-1024x640.jpeg 1024w" sizes="(max-width: 2500px) 100vw, 2500px">
                             </div>
                         </div>
                     </div>
@@ -1110,15 +1118,15 @@
         <script src="https://yuck-2-yum.test/assets/main.js" id="granola-scripts-js"></script>
 
         <!-- GRAVITY -->
-        <script defer="defer" src="https://granola.test/wp-content/plugins/gravityforms/js/jquery.json.min.js" id="gform_json-js"></script>
+        <script defer="defer" src="https://yuck-2-yum.test/wp-content/plugins/gravityforms/js/jquery.json.min.js" id="gform_json-js"></script>
         <script id="gform_gravityforms-js-extra">
             var gform_i18n = {"datepicker":{"days":{"monday":"Mon","tuesday":"Tue","wednesday":"Wed","thursday":"Thu","friday":"Fri","saturday":"Sat","sunday":"Sun"},"months":{"january":"January","february":"February","march":"March","april":"April","may":"May","june":"June","july":"July","august":"August","september":"September","october":"October","november":"November","december":"December"},"firstDay":1,"iconText":"Select date"}};
-            var gf_global = {"gf_currency_config":{"name":"Pound Sterling","symbol_left":"&#163;","symbol_right":"","symbol_padding":" ","thousand_separator":",","decimal_separator":".","decimals":2,"code":"GBP"},"base_url":"https:\/\/granola.test\/wp-content\/plugins\/gravityforms","number_formats":[],"spinnerUrl":"https:\/\/granola.test\/wp-content\/plugins\/gravityforms\/images\/spinner.svg","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
+            var gf_global = {"gf_currency_config":{"name":"Pound Sterling","symbol_left":"&#163;","symbol_right":"","symbol_padding":" ","thousand_separator":",","decimal_separator":".","decimals":2,"code":"GBP"},"base_url":"https:\/\/yuck-2-yum.test\/wp-content\/plugins\/gravityforms","number_formats":[],"spinnerUrl":"https:\/\/yuck-2-yum.test\/wp-content\/plugins\/gravityforms\/images\/spinner.svg","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
             var gf_legacy_multi = {"4":""};
-            var gf_global = {"gf_currency_config":{"name":"Pound Sterling","symbol_left":"&#163;","symbol_right":"","symbol_padding":" ","thousand_separator":",","decimal_separator":".","decimals":2,"code":"GBP"},"base_url":"https:\/\/granola.test\/wp-content\/plugins\/gravityforms","number_formats":[],"spinnerUrl":"https:\/\/granola.test\/wp-content\/plugins\/gravityforms\/images\/spinner.svg","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
+            var gf_global = {"gf_currency_config":{"name":"Pound Sterling","symbol_left":"&#163;","symbol_right":"","symbol_padding":" ","thousand_separator":",","decimal_separator":".","decimals":2,"code":"GBP"},"base_url":"https:\/\/yuck-2-yum.test\/wp-content\/plugins\/gravityforms","number_formats":[],"spinnerUrl":"https:\/\/yuck-2-yum.test\/wp-content\/plugins\/gravityforms\/images\/spinner.svg","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
             var gf_legacy_multi = {"4":""};
             </script>
-        <script defer="defer" src="https://granola.test/wp-content/plugins/gravityforms/js/gravityforms.min.js" id="gform_gravityforms-js"></script>
+        <script defer="defer" src="https://yuck-2-yum.test/wp-content/plugins/gravityforms/js/gravityforms.min.js" id="gform_gravityforms-js"></script>
         <script>
             gform.initializeOnLoaded( function() { jQuery(document).on('gform_post_render', function(event, formId, currentPage){if(formId == 4) {} } );jQuery(document).bind('gform_post_conditional_logic', function(event, formId, fields, isInit){} ) } );
         </script>
