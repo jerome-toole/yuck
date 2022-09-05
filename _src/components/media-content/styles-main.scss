@@ -77,8 +77,13 @@
         }
 
         .video-item,
+        iframe,
         img {
             @include object-fit-asset;
+        }
+
+        iframe {
+            margin: 0;
         }
     }
 
