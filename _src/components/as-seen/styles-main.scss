@@ -1,0 +1,48 @@
+.as-seen {
+    --as-seen--outer-padding-y: var(--block--padding-y);
+    --as-seen--outer-padding-x: var(--block--padding-x);
+    --as-seen--inner-padding-y: var(--block--padding-y);
+    --as-seen--inner-padding-x: 0px;
+    --as-seen--gap: var(--space--m);
+    --as-seen--inner-padding-y: var(--space--xl);
+    --as-seen--inner-padding-x: var(--space--m);
+
+    $this: &;
+
+    padding: var(--as-seen--outer-padding-x) var(--as-seen--outer-padding-y);
+
+    &:not(.alignfull) {
+        @include rounded-corners;
+
+        overflow: visible;
+    }
+
+    &__inner {
+        @include align-width--l;
+
+        display: grid;
+        gap: var(--space--m, 0);
+    }
+
+    &__heading {
+        text-align: center;
+
+        + #{$this}__subheading {
+            margin-top: calc((var(--heading--margin-bottom) * -1) + var(--space--base));
+        }
+    }
+
+    &__link {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        aspect-ratio: 3/1;
+        transform: scale(var(--as-seen--image-scale, 1));
+
+        img {
+            object-fit: contain;
+        }
+    }
+}

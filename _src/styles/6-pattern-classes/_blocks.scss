@@ -1,7 +1,7 @@
 @use 'sass:math';
 
 .blocks {
-    margin-top: var(--blocks--padding-top);
+    // margin-top: var(--blocks--padding-top);
     margin-bottom: var(--blocks--padding-bottom);
 
     > *:first-child {
