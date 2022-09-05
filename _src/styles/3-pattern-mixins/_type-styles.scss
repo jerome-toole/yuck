@@ -33,32 +33,32 @@
 @mixin typestyle-hero {
     @include heading-attributes;
 
-    font-size: rfs(36, 85);
+    font-size: rfs(30, 55);
     line-height: 1.2;
 }
 
 @mixin typestyle-h1 {
     @include heading-attributes;
 
-    font-size: rfs(28, 55);
+    font-size: rfs(28, 37);
 }
 
 @mixin typestyle-h2 {
     @include heading-attributes;
 
-    font-size: rfs(26, 44);
+    font-size: rfs(24, 32);
 }
 
 @mixin typestyle-h3 {
     @include heading-attributes;
 
-    font-size: rfs(23, 35);
+    font-size: rfs(22, 28);
 }
 
 @mixin typestyle-h4 {
     @include heading-attributes;
 
-    font-size: rfs(20, 28);
+    font-size: rfs(20, 24);
 }
 
 @mixin typestyle-h5 {
@@ -71,4 +71,11 @@
     @include heading-attributes;
 
     font-size: var(----type--font-size--base);
+}
+
+@mixin typestyle-button {
+    font-size: rem(18);
+    font-family: var(--type--2--font-family);
+    font-weight: var(--type--2--font-weight);
+    line-height: var(--type--2--line-height);
 }

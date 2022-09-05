@@ -5,15 +5,15 @@
 $type-min-width: 320px;
 $type-max-width: 1200px;
 
-$base-font-size: 16px;
+$base-font-size: 20px;
 
 @mixin type-variables {
-    --type--font-size--base: $base-font-size;
+    --type--font-size--base: #{$base-font-size};
     --type--font-size--small: #{rfs(14, 14.5)};
 
-    --type--1--font-family: 'system-ui', sans-serif;
-    --type--1--font-weight: 400;
-    --type--1--font-weight--bold: 700;
+    --type--1--font-family: 'Inter', 'system-ui', sans-serif;
+    --type--1--font-weight: 600;
+    --type--1--font-weight--bold: 900;
     --type--1--line-height: 1.5;
 
     --type--2--font-family: 'Syncopate', serif;
@@ -38,8 +38,8 @@ $base-font-size: 16px;
     // ---------------------------------------------------
     // Links
     // ---------------------------------------------------
-    --link--color: var(--color--brand-5);
-    --link--color--hover: var(--color--brand-5);
+    --link--color: var(--color--blackolive);
+    --link--color--hover: var(--color--blackolive);
     --link--text-decoration: underline;
     --link--text-decoration--hover: underline;
 

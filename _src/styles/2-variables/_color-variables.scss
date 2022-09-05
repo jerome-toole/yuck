@@ -8,10 +8,15 @@
 $colors: (
     'base': (
         'lightgreen': (
-            'color': #def3d6,
+            'color': #dfebda,
         ),
         'darkgreen': (
             'color': #7cb18e,
+            'foreground': var(--color--blackolive),
+            'properties': (
+                '--link--color': var(--color--blackolive),
+                '--link--color--hover': var(--color--blackolive),
+            ),
         ),
         'blue': (
             'color': #0047af,
@@ -23,12 +28,25 @@ $colors: (
         ),
         'pink': (
             'color': #f35178,
+            'foreground': var(--color--black),
+            'properties': (
+                '--link--color': var(--color--black),
+                '--link--color--hover': var(--color--black),
+            ),
         ),
         'yellow': (
             'color': #f4be44,
         ),
         'lightblue': (
             'color': #87d1d5,
+        ),
+        'mouldblue': (
+            'color': #3d5d66,
+            'foreground': var(--color--lightgreen),
+            'properties': (
+                '--link--color': var(--color--lightgreen),
+                '--link--color--hover': var(--color--lightgreen),
+            ),
         ),
         'red': (
             'color': #b6435d,
@@ -41,9 +59,13 @@ $colors: (
         'white': (
             'color': #fff,
             'foreground': var(--color--brand-1),
+        ),
+        'blackolive': (
+            'color': #3a3938,
+            'foreground': var(--color--white),
             'properties': (
-                '--link--color': var(--color--brand-5),
-                '--link--color--hover': var(--color--brand-5),
+                '--link--color': var(--color--white),
+                '--link--color--hover': var(--color--white),
             ),
         ),
         'black': (
@@ -56,32 +78,28 @@ $colors: (
         ),
         'grey': (
             'color': #f5f5f5,
-            'foreground': var(--color--white),
-            'properties': (
-                '--link--color': var(--color--white),
-                '--link--color--hover': var(--color--white),
-            ),
+            'foreground': var(--color--blackolive),
         ),
         'brand-1': (
-            'namedColor': 'darkgreen',
-        ),
-        'brand-2': (
             'namedColor': 'pink',
         ),
+        'brand-2': (
+            'namedColor': 'darkgreen',
+        ),
         'brand-3': (
-            'namedColor': 'lightgreen',
+            'namedColor': 'mouldblue',
         ),
         'brand-4': (
             'namedColor': 'grey',
         ),
         'brand-5': (
-            'namedColor': 'red',
+            'namedColor': 'lightgreen',
         ),
         'foreground': (
-            'namedColor': 'black',
+            'namedColor': 'mouldblue',
         ),
         'background': (
-            'namedColor': 'white',
+            'namedColor': 'lightgreen',
         ),
         'style-guide': (
             'color': #d4444d,

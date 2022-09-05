@@ -1,7 +1,7 @@
 @import './styles/header-menu';
 
-$site-header--bottom--background: 'brand-1';
-$site-header--top--background: 'white';
+$site-header--bottom--background: 'brand-5';
+$site-header--top--background: 'brand-5';
 
 :root {
     --site-header--bottom: auto;
@@ -30,11 +30,9 @@ $site-header--top--background: 'white';
         --site-header--spacing: var(--space--m);
     }
 
-    @include mq('site-header') {
-        --site-header--logo-width: #{rem(170)};
+    @include mq('large') {
+        --site-header--logo-width: #{rem(240)};
         --site-header--height: #{rem(74)};
-
-        background-color: transparent;
     }
 
     @include mq($until: 'site-header') {
@@ -135,10 +133,10 @@ $site-header--top--background: 'white';
     }
 
     &__burger {
-        --burger--color: var(--color--brand-1);
-        --burger--background-color: var(--color--brand-2);
-        --burger--border-color: var(--color--brand-2);
-        --burger--color--hover: var(--color--brand-2);
+        --burger--color: var(--color--brand-5);
+        --burger--background-color: var(--color--brand-3);
+        --burger--border-color: var(--color--brand-3);
+        --burger--color--hover: var(--color--brand-5);
         --burger--background-color--hover: var(--color--brand-1);
         --burger--border-color--hover: var(--color--brand-1);
 

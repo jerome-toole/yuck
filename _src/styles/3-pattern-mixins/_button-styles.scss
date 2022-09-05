@@ -1,6 +1,8 @@
 @mixin button {
     --focus--color: var(--button--border-color);
 
+    @include typestyle-button;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -31,14 +33,14 @@
         @include focus--1;
     }
 
-    .has-brand-1-background-color &:not(.has-background) {
-        --button--background-color--hover: var(--color--brand-1);
+    .has-brand-2-background-color &:not(.has-background) {
+        --button--background-color--hover: var(--color--brand-2);
         --button--border-color--hover: var(--color--brand-2);
     }
 
-    .has-brand-2-background-color &:not(.has-background) {
-        @include button--theme-2;
-    }
+    // .has-brand-2-background-color &:not(.has-background) {
+    //     @include button--theme-2;
+    // }
 }
 
 @mixin button--theme-2 {

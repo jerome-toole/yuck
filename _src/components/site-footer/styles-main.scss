@@ -7,7 +7,6 @@
     $footer-breakpoint--small: 400px;
 
     padding-top: var(--space--l);
-    padding-bottom: var(--space--l);
 
     &__logo { grid-area: logo; }
     &__top-text { grid-area: top-text; }
@@ -134,6 +133,7 @@
     }
 
     &__bottom {
+        padding-bottom: var(--space--base);
         padding-top: var(--space--base);
         border-top: var(--border--1);
 
@@ -141,6 +141,23 @@
             align-items: center;
             gap: rem(25);
             text-align: center;
+            display: grid;
+            grid-column-gap: var(--space--s);
+            grid-row-gap: var(--space--s);
+
+            @include mq(small) {
+                grid-template-columns: 1fr max-content;
+            }
+        }
+
+        #wcb {
+            #wcb_p {
+                display: flex;
+            }
+
+            #wcb_2 {
+                display: none;
+            }
         }
 
         #{$this}__bottom-text {

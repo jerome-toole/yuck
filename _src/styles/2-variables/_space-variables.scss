@@ -44,4 +44,8 @@
         --space--responsive--xl: var(--space--xl);
         --space--responsive--xxl: var(--space--xxl);
     }
+
+    @include mq(large) {
+        --space--container-padding: #{rem(45)};
+    }
 }
