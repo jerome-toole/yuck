@@ -41,7 +41,6 @@
         "ecmaVersion": 2022
     },
     "globals": {
-        "wp": "readonly",
-        "lodash": "readonly"
+        "wp": "readonly"
     }
 }

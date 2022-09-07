@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "gulp watch",
+    "build": "gulp",
     "setup": "npm install && gulp",
     "deploy": "npm install && gulp",
     "fix": "gulp fix",
@@ -68,8 +69,9 @@
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
-    "normalize.css": "^8.0.1"
+    "lodash.debounce": "^4.0.8",
+    "normalize.css": "^8.0.1",
+    "webpack-bundle-analyzer": "^4.6.1"
   },
   "overrides": {
     "wp-pot": "1.9.9"

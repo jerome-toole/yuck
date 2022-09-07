@@ -1,4 +1,4 @@
-import { debounce } from 'lodash';
+import debounce from 'lodash/debounce.js';
 import isElementVisible from '../../../scripts/helpers/isElementVisible.js';
 
 const dropdownSelector = '.menu-item-has-children';
