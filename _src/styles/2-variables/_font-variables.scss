@@ -5,7 +5,7 @@
 
     @font-face {
         font-display: swap;
-        font-family: yuck-syncopate;
+        font-family: 'yuck-syncopate';
         font-style: normal;
         font-weight: 200;
         src: url('./static/Syncopate-Regular.ttf');
@@ -13,7 +13,7 @@
 
     @font-face {
         font-display: swap;
-        font-family: yuck-syncopate;
+        font-family: 'yuck-syncopate';
         font-style: normal;
         font-weight: 400;
         src: url('./static/Syncopate-Bold.ttf');
@@ -23,7 +23,7 @@
         font-display: swap;
         font-family: 'yuck-inter';
         font-style: normal;
-        font-weight: 300;
+        font-weight: 200;
         src: url('./static/Inter-Light.ttf');
     }
 
@@ -33,14 +33,6 @@
         font-style: normal;
         font-weight: 400;
         src: url('./static/Inter-SemiBold.ttf');
-    }
-
-    @font-face {
-        font-display: swap;
-        font-family: 'yuck-inter';
-        font-style: normal;
-        font-weight: 600;
-        src: url('./static/Inter-Medium.ttf');
     }
 
     @font-face {

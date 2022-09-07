@@ -73,7 +73,7 @@
             display: inline-flex;
 
             @include mq($until: 'site-header') {
-                @include typestyle-h3;
+                @include typestyle-menu-item;
             }
 
             &:not([href]) {

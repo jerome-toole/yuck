@@ -79,3 +79,10 @@
     font-weight: var(--type--2--font-weight);
     line-height: var(--type--2--line-height);
 }
+
+@mixin typestyle-menu-item {
+    @include heading-attributes;
+
+    font-size: rfs(22, 28);
+    font-weight: 200;
+}
