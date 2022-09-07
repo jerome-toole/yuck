@@ -3,7 +3,7 @@ import plumber from 'gulp-plumber';
 import browsersync from 'browser-sync';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
-import cssnano from 'cssnano';
+// import cssnano from 'cssnano';
 import stylelint from '@ronilaukkarinen/gulp-stylelint';
 import sourcemaps from 'gulp-sourcemaps';
 import rename from 'gulp-rename';
@@ -24,48 +24,55 @@ const sass = gulpSass(dartSass);
  * Compile the source style files into the destination directory.
  */
 function taskStyles(src, dest) {
-    const timestamp = Math.floor(Date.now() / 1000);
+    // const timestamp = Math.floor(Date.now() / 1000);
     const isProduction = process.env.NODE_ENV !== 'development';
 
-    return gulp
-        .src(src)
-        .pipe(
-            gulpif(
-                !isProduction,
-                plumber({
-                    errorHandler(err) {
-                        console.log(err.message);
-                        this.emit('end');
-                    },
+    return (
+        gulp
+            .src(src)
+            .pipe(
+                gulpif(
+                    !isProduction,
+                    plumber({
+                        errorHandler(err) {
+                            console.log(err.message);
+                            this.emit('end');
+                        },
+                    })
+                )
+            )
+            .pipe(gulpif(!isProduction, sourcemaps.init()))
+            .pipe(sassGlob())
+            .pipe(
+                sass({
+                    includePaths: config.paths.includePaths,
                 })
             )
-        )
-        .pipe(gulpif(!isProduction, sourcemaps.init()))
-        .pipe(sassGlob())
-        .pipe(
-            sass({
-                includePaths: config.paths.includePaths,
-            })
-        )
-        .pipe(postcss([autoprefixer(), cssnano()]))
-        .pipe(
-            gulpif(
-                isProduction,
-                rename({
-                    suffix: `.${timestamp}`,
+            .pipe(
+                postcss([
+                    autoprefixer(),
+                    // cssnano()
+                ])
+            )
+            // .pipe(
+            //     gulpif(
+            //         isProduction,
+            //         rename({
+            //             suffix: `.${timestamp}`,
+            //         })
+            //     )
+            // )
+            .pipe(
+                rename((path) => {
+                    // Remove 'components-*' from the file directory so that all components end up in assets/components/
+                    path.dirname = path.dirname.replace(/^component[^/]+/, '');
+                    return path;
                 })
             )
-        )
-        .pipe(
-            rename((path) => {
-                // Remove 'components-*' from the file directory so that all components end up in assets/components/
-                path.dirname = path.dirname.replace(/^component[^/]+/, '');
-                return path;
-            })
-        )
-        .pipe(gulpif(!isProduction, sourcemaps.write('./')))
-        .pipe(gulp.dest(dest))
-        .pipe(browsersync.stream());
+            .pipe(gulpif(!isProduction, sourcemaps.write('./')))
+            .pipe(gulp.dest(dest))
+            .pipe(browsersync.stream())
+    );
 }
 
 /**
