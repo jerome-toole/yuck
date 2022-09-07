@@ -11,12 +11,12 @@ $base-font-size: 20px;
     --type--font-size--base: #{$base-font-size};
     --type--font-size--small: #{rfs(14, 14.5)};
 
-    --type--1--font-family: 'Inter', 'system-ui', sans-serif;
+    --type--1--font-family: yuck-inter, 'system-ui', sans-serif;
     --type--1--font-weight: 600;
     --type--1--font-weight--bold: 900;
     --type--1--line-height: 1.5;
 
-    --type--2--font-family: 'Syncopate', serif;
+    --type--2--font-family: yuck-syncopate, sans-serif;
     --type--2--color: inherit;
     --type--2--font-weight: 400;
     --type--2--line-height: 1.3;
