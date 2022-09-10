@@ -1,7 +1,7 @@
 .site-footer {
     --link--color: var(--color--foreground);
     --link--color--hover: var(--color--foreground);
-    --site-footer__images--aspect-ratio: 28 / 13;
+    --site-footer__images--aspect-ratio: 1 / 1;
 
     $this: &;
     $footer-breakpoint--small: 400px;

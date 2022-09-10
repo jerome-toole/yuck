@@ -4038,6 +4038,23 @@ pre {
   content: "";
   opacity: var(--page-header--overlay-opacity);
 }
+.page-header__badge {
+  width: 8.75rem;
+  top: 5px;
+  right: 0;
+  aspect-ratio: 1/1;
+  position: absolute;
+  z-index: 1;
+  transform: translate(-20px, 10px) rotate(25deg);
+}
+@media (min-width: 62em) {
+  .page-header__badge {
+    transform: translate(-40px, 40px) rotate(25deg);
+    width: 11.25rem;
+    top: unset;
+    bottom: 0;
+  }
+}
 .page-header--type--article .page-header__heading {
   font-family: var(--type--2--font-family);
   font-weight: var(--type--2--font-weight);
@@ -4290,7 +4307,7 @@ pre {
 .site-footer {
   --link--color: var(--color--foreground);
   --link--color--hover: var(--color--foreground);
-  --site-footer__images--aspect-ratio: 28 / 13;
+  --site-footer__images--aspect-ratio: 1 / 1;
   padding-top: var(--space--l);
 }
 .site-footer__logo {
@@ -5121,3 +5138,4 @@ pre {
   height: auto;
   clip: auto;
 }
+/*# sourceMappingURL=main.css.map */

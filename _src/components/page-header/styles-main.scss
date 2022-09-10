@@ -154,6 +154,23 @@
         }
     }
 
+    &__badge {
+        width: rem(140);
+        top: 5px;
+        right: 0;
+        aspect-ratio: 1/1;
+        position: absolute;
+        z-index: 1;
+        transform: translate(-20px, 10px) rotate(25deg);
+
+        @include mq(large) {
+            transform: translate(-40px, 40px) rotate(25deg);
+            width: rem(180);
+            top: unset;
+            bottom: 0;
+        }
+    }
+
     &--type--article {
         #{$this}__heading {
             @include typestyle-h2;
