@@ -387,7 +387,7 @@
         <header class="site-header site-header--positioned">
             <div class="site-header__inner">
                 <div class="site-header__top">
-                    <a href="/" target="" class="site-header__logo img-fit">
+                    <a href="#" target="" class="site-header__logo img-fit">
                         <img
                             src="assets/images/logo.png"
                             alt="Yuck.com"
@@ -419,7 +419,7 @@
                                 id="menu-item-107"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-104 current_page_item menu-item-107"
                             >
-                                <a href="/" aria-current="page">Home</a>
+                                <a href="#" aria-current="page">Home</a>
                             </li>
                             <li
                                 id="menu-item-990"
@@ -431,7 +431,7 @@
                                 id="menu-item-633"
                                 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-has-children menu-item-633"
                             >
-                                <a href="/" aria-current="page">Dropdown</a>
+                                <a href="#" aria-current="page">Dropdown</a>
                                 <div class="sub-menu sub-menu--depth-0">
                                     <ul class="sub-menu__inner">
                                         <li
@@ -527,7 +527,7 @@
 
                         <a
                             rel="noopener"
-                            href="/"
+                            href="#"
                             target="_blank"
                             class="page-header__badge img-fit"
                         >
@@ -691,9 +691,15 @@
                         </div>
                     </section>
 
-                    <figure class="wp-block-image alignwide size-large">
-                        <img loading="lazy" width="1024" height="640" src="wp-content/uploads/2022/orange-rot.png" alt="" class="wp-image-1295">
-                    </figure>
+                    <div class="wp-block-cover alignwide">
+                        <span aria-hidden="true" class="wp-block-cover__background has-background-dim"></span>
+                        <img width="2560" height="1600" class="wp-block-cover__image-background" alt=""
+                        data-object-fit="cover"
+                        src="wp-content/uploads/2022/orange-rot.png">
+                        <div class="wp-block-cover__inner-container">
+                            <h2 class="has-text-align-center">Revolutionary EcoRot® food products</h2>
+                        </div>
+                    </div>
 
                     <div class="wp-container-1 wp-block-group alignfull has-brand-3-background-color has-background">
                         <div class="gf_browser_chrome gform_wrapper gravity-theme" id="gform_wrapper_4">
@@ -810,7 +816,7 @@
             <div class="site-footer__inner">
                 <div class="site-footer__top alignwide">
                     <div class="site-footer__logo">
-                        <a href="/" target="">
+                        <a href="#" target="">
                             <img
                                 src="assets/images/logo.png"
                                 alt="Yuck.com"
@@ -930,7 +936,7 @@
                         <div class="site-footer__images flex-grid">
                             <a
                                 rel="noopener"
-                                href="/"
+                                href="#"
                                 target="_blank"
                                 class="site-footer__image img-fit"
                             >
@@ -984,12 +990,6 @@
         <!-- GRAVITY -->
 
         <!-- CHAT WIDGET -->
-        <script>
-            // We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/test'
-            (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/test';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
-        </script>
-        <div id="feefo-service-review-floating-widgetId"></div>
-
         <!--Start of Tawk.to Script-->
         <script type="text/javascript">
         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

@@ -18,6 +18,7 @@
     position: relative;
     display: grid;
     align-items: end;
+    gap: var(--space--m);
     justify-content: center;
     grid-template-columns: var(--width--responsive--l);
     isolation: isolate; // Create local stacking context.
@@ -156,14 +157,16 @@
 
     &__badge {
         width: rem(140);
-        top: 5px;
-        right: 0;
         aspect-ratio: 1/1;
-        position: absolute;
         z-index: 1;
-        transform: translate(-20px, 10px) rotate(25deg);
+        order: -1;
+        transform: translate(-10px, 0px) rotate(25deg);
+        align-self: flex-end;
+        justify-self: end;
 
         @include mq(large) {
+            right: 0;
+            position: absolute;
             transform: translate(-40px, 40px) rotate(25deg);
             width: rem(180);
             top: unset;

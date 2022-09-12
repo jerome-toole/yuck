@@ -451,12 +451,12 @@ template {
   --input--border-width: 1px;
   --input--border-color: currentColor;
   --input--border-radius: 1.6875em;
-  --input--color: inherit;
-  --input--color--focus: var(--input--border-color);
+  --input--color: var(--color--blackolive);
+  --input--color--focus: var(--color--blackolive);
   --input--outline-color--focus: var(--input--border-color);
   --input--outline-width--focus: 1px;
   --input--gap: var(--space--xs);
-  --input--padding-y: 0.9em;
+  --input--padding-y: 0.75em;
   --input--padding-x: 1.4em;
   --input--padding: var(--input--padding-y) var(--input--padding-x);
   --input--placeholder-color: hsla(var(--color--brand-1--hsl), 0.8);
@@ -2638,6 +2638,8 @@ pre {
 }
 
 .wp-block-cover {
+  --cover--padding-y: var(--block--padding-y);
+  --cover--padding-x: var(--space--responsive--m);
   margin-top: var(--space--layout);
   margin-bottom: var(--space--layout);
   min-height: unset;
@@ -2650,8 +2652,8 @@ pre {
   margin-bottom: 0;
 }
 .wp-block-cover__inner-container {
-  max-width: var(--block--max-width);
-  padding: var(--block--padding-y) var(--block--padding-x);
+  max-width: var(--width--s);
+  padding: var(--cover--padding-y) var(--cover--padding-x);
   margin-right: auto;
   margin-left: auto;
 }
@@ -2661,17 +2663,12 @@ pre {
 .wp-block-cover__inner-container > *:last-child {
   margin-bottom: 0;
 }
-.wp-block-cover[class*=-background-color] .wp-block-cover__inner-container {
-  color: currentColor;
-}
 .wp-block-cover.alignfull .wp-block-cover__inner-container, .wp-block-cover.alignwide .wp-block-cover__inner-container {
   padding: var(--space--responsive--xl) var(--block--padding-x);
-  color: currentColor;
 }
-.wp-block-cover:not(.alignfull) img {
+.wp-block-cover:not(.alignfull) {
   overflow: hidden;
   border-radius: var(--border-radius--m);
-  box-shadow: var(--box-shadow--1);
 }
 
 .wp-block-embed {
@@ -3901,6 +3898,7 @@ pre {
   position: relative;
   display: grid;
   align-items: end;
+  gap: var(--space--m);
   justify-content: center;
   grid-template-columns: var(--width--responsive--l);
   isolation: isolate;
@@ -4040,15 +4038,17 @@ pre {
 }
 .page-header__badge {
   width: 8.75rem;
-  top: 5px;
-  right: 0;
   aspect-ratio: 1/1;
-  position: absolute;
   z-index: 1;
-  transform: translate(-20px, 10px) rotate(25deg);
+  order: -1;
+  transform: translate(-10px, 0px) rotate(25deg);
+  align-self: flex-end;
+  justify-self: end;
 }
 @media (min-width: 62em) {
   .page-header__badge {
+    right: 0;
+    position: absolute;
     transform: translate(-40px, 40px) rotate(25deg);
     width: 11.25rem;
     top: unset;

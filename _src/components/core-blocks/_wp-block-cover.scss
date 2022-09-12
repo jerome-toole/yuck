@@ -1,4 +1,7 @@
 .wp-block-cover {
+    --cover--padding-y: var(--block--padding-y);
+    --cover--padding-x: var(--space--responsive--m);
+
     $this: &;
 
     @include no-first-last-margin;
@@ -10,30 +13,25 @@
     &__inner-container {
         @include no-first-last-margin;
 
-        max-width: var(--block--max-width);
-        padding: var(--block--padding-y) var(--block--padding-x);
+        max-width: var(--width--s);
+        padding: var(--cover--padding-y) var(--cover--padding-x);
         margin-right: auto;
         margin-left: auto;
-    }
-
-    &[class*='-background-color'] {
-        #{$this}__inner-container {
-            color: currentColor;
-        }
     }
 
     &.alignfull,
     &.alignwide {
         #{$this}__inner-container {
             padding: var(--space--responsive--xl) var(--block--padding-x);
-            color: currentColor;
         }
     }
 
     &:not(.alignfull) {
-        img {
-            @include rounded-corners;
-            @include box-shadow;
-        }
+        @include rounded-corners;
+
+        // img {
+        //     @include rounded-corners;
+        //     @include box-shadow;
+        // }
     }
 }
