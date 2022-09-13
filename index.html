@@ -3,6 +3,39 @@
         <meta charset="UTF-8" />
         <link rel="shortcut icon" type="image/png" href="assets/static/favicon.png"/>
 
+        <script type="text/javascript" id="spai_js" data-cfasync="false">
+            document.documentElement.className += " spai_has_js";
+            (function(w, d){
+                var b = d.getElementsByTagName('head')[0];
+                var s = d.createElement("script");
+                var v = ("IntersectionObserver" in w) ? "" : "-compat";
+                s.async = true; // This includes the script as async.
+                s.src = "https://cdn.shortpixel.ai/assets/js/bundles/spai-lib-bg" + v
+                    + ".1.0.min.js?v=3.5.1";
+                w.spaiDomain = "cdn.shortpixel.ai";
+                w.spaiData = {
+                    version: "3.5.1",
+                    key: "spai",
+                    quality: "glossy",
+                    convert: "auto",
+                    lqip: true,
+                                            rootMargin: "500px",
+                    crop: true,
+                    sizeBreakpoints: {"on":true,"base":50,"rate":10},
+                    backgroundsMaxWidth: 1920,
+                    resizeStyleBackgrounds: false,
+                    nativeLazyLoad: false,
+                    safeLazyBackgrounds: false,
+                    debug: false,
+                    doSelectors: [{"selectors":"img","type":"attr","targetAttr":"src","attrType":"url","lazy":true}],
+                    exclusions: {"selectors":[],"urls":{"regex:\/\\\/\\\/([^\\\/]*\\.|)gravatar.com\\\/\/":{"lazy":0,"cdn":0,"resize":0,"lqip":0,"crop":-1}}},
+                    watchClasses: [],
+                    sizeFromImageSuffix: true                    };
+                b.appendChild(s);
+            }(window, document));
+        </script>
+        <link rel="dns-prefetch" href="//cdn.shortpixel.ai"></link>
+
         <!-- GRAVITYFORMS -->
         <script src="wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
         <script>
