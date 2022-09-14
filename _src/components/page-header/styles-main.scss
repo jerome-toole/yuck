@@ -9,7 +9,7 @@
     --page-header--text-align: left;
     --page-header--grid-alignment-x: left;
     --page-header--overlay-opacity: 24%;
-    --page-header--background: #ec819b;
+    --page-header--background: #739ba6;
 
     $this: &;
     $internal-z-index: 100; // Local stacking.
@@ -28,6 +28,18 @@
 
     @include mq(large) {
         --page-header--inset-image--size: #{rem(150)};
+    }
+
+    &__grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space--responsive--m);
+        align-items: end;
+
+        @include mq(medium) {
+            grid-template-columns: 1fr 1fr;
+        }
     }
 
     &.has-background {
@@ -54,7 +66,7 @@
     }
 
     &__heading {
-        @include typestyle-hero;
+        @include typestyle-h1;
 
         max-width: var(--page-header--heading--max-width);
         margin-top: 0;
@@ -62,7 +74,7 @@
     }
 
     &__subheading {
-        @include typestyle-h1;
+        @include typestyle-h2;
 
         max-width: var(--page-header--subheading--max-width);
         margin-top: var(--page-header--spacing, var(--space--base));
@@ -133,60 +145,12 @@
     }
 
     &__background-image {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-
-        &-inner {
-            height: 100%;
-            width: 60%;
-            right: 0;
-            position: absolute;
-            max-width: rem(600);
-
-            &::before {
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background-image: linear-gradient(to left, hsla(var(--color--pink--hsl), 0), var(--page-header--background));
-                content: '';
-                z-index: 1;
-            }
-
-            &::after {
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background-color: #d37597;
-                content: '';
-                // mix-blend-mode: screen;
-                opacity: var(--page-header--overlay-opacity);
-            }
-        }
-    }
-
-    &__badge {
-        width: rem(140);
-        aspect-ratio: 1/1;
-        z-index: 1;
-        order: -1;
-        transform: translate(-10px, 0px) rotate(25deg);
-        align-self: flex-end;
+        width: 100%;
+        max-width: rem(540);
         justify-self: end;
 
-        @include mq(large) {
-            right: 0;
-            position: absolute;
-            transform: translate(-40px, 40px) rotate(25deg);
-            width: rem(180);
-            top: unset;
-            bottom: 0;
+        img {
+            width: 100%;
         }
     }
 

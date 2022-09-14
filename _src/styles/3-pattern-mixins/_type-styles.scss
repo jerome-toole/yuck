@@ -40,7 +40,7 @@
 @mixin typestyle-h1 {
     @include heading-attributes;
 
-    font-size: rfs(28, 37);
+    font-size: rfs(30, 45);
 }
 
 @mixin typestyle-h2 {
