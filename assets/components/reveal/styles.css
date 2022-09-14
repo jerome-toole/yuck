@@ -1,0 +1,1 @@
+.reveal .reveal__content{height:0;overflow:hidden;transition:transition(height,opacity,transform)}.reveal.is-enabled .reveal__content{height:auto;opacity:0;transform:translateY(var(--reveal--translateY,0))}.reveal.is-open .reveal__content{opacity:1;transform:translateY(0)}
