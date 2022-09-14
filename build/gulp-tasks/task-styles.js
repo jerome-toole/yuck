@@ -3,7 +3,7 @@ import plumber from 'gulp-plumber';
 import browsersync from 'browser-sync';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
-// import cssnano from 'cssnano';
+import cssnano from 'cssnano';
 import stylelint from '@ronilaukkarinen/gulp-stylelint';
 import sourcemaps from 'gulp-sourcemaps';
 import rename from 'gulp-rename';
@@ -48,12 +48,7 @@ function taskStyles(src, dest) {
                     includePaths: config.paths.includePaths,
                 })
             )
-            .pipe(
-                postcss([
-                    autoprefixer(),
-                    // cssnano()
-                ])
-            )
+            .pipe(postcss([autoprefixer(), cssnano()]))
             // .pipe(
             //     gulpif(
             //         isProduction,

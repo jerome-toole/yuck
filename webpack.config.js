@@ -33,9 +33,6 @@ export default (options) => {
         output: {
             filename,
         },
-        optimization: {
-            minimize: false,
-        },
         plugins: [new ESLintPlugin(eslintOptions)],
         module: {
             rules: [
