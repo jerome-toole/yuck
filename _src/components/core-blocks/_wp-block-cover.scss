@@ -19,6 +19,20 @@
         margin-left: auto;
     }
 
+    .wp-block-cover__inner-container {
+        color: var(--color--foreground);
+    }
+
+    &__background {
+        &.has-background-dim {
+            ~ .wp-block-cover__inner-container {
+                @include color-context('black');
+
+                background: transparent;
+            }
+        }
+    }
+
     &.alignfull,
     &.alignwide {
         #{$this}__inner-container {

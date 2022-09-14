@@ -36,13 +36,6 @@
         </script>
         <link rel="dns-prefetch" href="//cdn.shortpixel.ai"></link>
 
-        <!-- GRAVITYFORMS -->
-        <script src="wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
-        <script>
-            var gform;gform||(document.addEventListener("gform_main_scripts_loaded",function(){gform.scriptsLoaded=!0}),window.addEventListener("DOMContentLoaded",function(){gform.domLoaded=!0}),gform={domLoaded:!1,scriptsLoaded:!1,initializeOnLoaded:function(o){gform.domLoaded&&gform.scriptsLoaded?o():!gform.domLoaded&&gform.scriptsLoaded?window.addEventListener("DOMContentLoaded",o):document.addEventListener("gform_main_scripts_loaded",o)},hooks:{action:{},filter:{}},addAction:function(o,n,r,t){gform.addHook("action",o,n,r,t)},addFilter:function(o,n,r,t){gform.addHook("filter",o,n,r,t)},doAction:function(o){gform.doHook("action",o,arguments)},applyFilters:function(o){return gform.doHook("filter",o,arguments)},removeAction:function(o,n){gform.removeHook("action",o,n)},removeFilter:function(o,n,r){gform.removeHook("filter",o,n,r)},addHook:function(o,n,r,t,i){null==gform.hooks[o][n]&&(gform.hooks[o][n]=[]);var e=gform.hooks[o][n];null==i&&(i=n+"_"+e.length),gform.hooks[o][n].push({tag:i,callable:r,priority:t=null==t?10:t})},doHook:function(n,o,r){var t;if(r=Array.prototype.slice.call(r,1),null!=gform.hooks[n][o]&&((o=gform.hooks[n][o]).sort(function(o,n){return o.priority-n.priority}),o.forEach(function(o){"function"!=typeof(t=o.callable)&&(t=window[t]),"action"==n?t.apply(null,r):r[0]=t.apply(null,r)})),"filter"==n)return r[0]},removeHook:function(o,n,t,i){var r;null!=gform.hooks[o][n]&&(r=(r=gform.hooks[o][n]).filter(function(o,n,r){return!!(null!=i&&i!=o.tag||null!=t&&t!=o.priority)}),gform.hooks[o][n]=r)}});
-        </script>
-        <!-- GRAVITYFORMS -->
-
         <!-- EXCESS TRACKING -->
         <script type="text/javascript" async="" src="https://v2.clickguardian.app/track.js"></script>
         <script src="https://connect.facebook.net/signals/config/22222222?v=2.9.79&amp;r=stable" async=""></script>
@@ -80,10 +73,6 @@
         />
 
         <link rel="stylesheet" id="granola-styles-css" href="assets/main.css?v=2" media="all" />
-
-        <!-- GRAVITY -->
-        <link rel="stylesheet" id="gform_basic-css" href="wp-content/plugins/gravityforms/css/basic.min.css" media="all">
-        <!-- GRAVITY -->
 
         <link rel="canonical" href="https://jerome-toole.github.io/yuck-to-yum/" />
         <link rel="shortlink" href="https://jerome-toole.github.io/yuck-to-yum/" />
@@ -522,111 +511,14 @@
                         </div>
                     </div>
 
-                    <div class="wp-container-1 wp-block-group alignfull has-brand-3-background-color has-background">
-                        <div class="gf_browser_chrome gform_wrapper gravity-theme" id="gform_wrapper_4">
-                            <div id="gf_4" class="gform_anchor" tabindex="-1"></div>
-                            <div class="gform_heading">
-                                <h2 class="gform_title">Join the waiting list!</h2>
-                                <span class="gform_description">We're disrupting the world of food...and your stomach!<br>
-                                    Sign up now to be get access to the early release.</span>
+                    <div class="wp-block-cover alignfull has-brand-3-background-color has-background">
+                        <div class="wp-block-cover__inner-container">
+                            <h2 class="has-text-align-center">Join the waiting list!</h2>
+                            <p class="has-text-align-center">We're disrupting the world of food...and your stomach!<br>
+                                Sign up now to be get access to the early release.</p>
+                            <div class="wp-container-3 is-content-justification-center wp-block-buttons">
+                                <div class="wp-block-button"><a href="#" class="wp-block-button__link">Get Your Grubs!</a></div>
                             </div>
-                            <form
-                                method="post"
-                                enctype="multipart/form-data"
-                                id="gform_4"
-                                action="/#gf_4"
-                                novalidate=""
-                            >
-                                <div class="gform_body gform-body">
-                                    <div
-                                        id="gform_fields_4"
-                                        class="gform_fields top_label form_sublabel_below description_below"
-                                    >
-                                        <div
-                                            id="field_4_1"
-                                            class="gfield field_sublabel_below field_description_below gfield_visibility_visible"
-                                        >
-                                            <label class="gfield_label" for="input_4_1">Name</label>
-                                            <div class="ginput_container ginput_container_text">
-                                                <input
-                                                    name="input_1"
-                                                    id="input_4_1"
-                                                    type="text"
-                                                    value=""
-                                                    class="large"
-                                                    aria-invalid="false"
-                                                />
-                                            </div>
-                                        </div>
-                                        <div
-                                            id="field_4_4"
-                                            class="gfield gfield--width-full field_sublabel_below field_description_below gfield_visibility_visible"
-                                        >
-                                            <label class="gfield_label" for="input_4_4">Email</label>
-                                            <div class="ginput_container ginput_container_email">
-                                                <input
-                                                    name="input_4"
-                                                    id="input_4_4"
-                                                    type="email"
-                                                    value=""
-                                                    class="large"
-                                                    aria-invalid="false"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gform_footer top_label">
-                                    <input
-                                        type="submit"
-                                        id="gform_submit_button_4"
-                                        class="gform_button button"
-                                        value="Submit"
-                                        onclick='if(window["gf_submitting_4"]){return false;}  if( !jQuery("#gform_4")[0].checkValidity || jQuery("#gform_4")[0].checkValidity()){window["gf_submitting_4"]=true;}  '
-                                        onkeypress='if( event.keyCode == 13 ){ if(window["gf_submitting_4"]){return false;} if( !jQuery("#gform_4")[0].checkValidity || jQuery("#gform_4")[0].checkValidity()){window["gf_submitting_4"]=true;}  jQuery("#gform_4").trigger("submit",[true]); }'
-                                    />
-                                    <input
-                                        type="hidden"
-                                        class="gform_hidden"
-                                        name="is_submit_4"
-                                        value="1"
-                                    />
-                                    <input
-                                        type="hidden"
-                                        class="gform_hidden"
-                                        name="gform_submit"
-                                        value="4"
-                                    />
-
-                                    <input
-                                        type="hidden"
-                                        class="gform_hidden"
-                                        name="gform_unique_id"
-                                        value=""
-                                    />
-                                    <input
-                                        type="hidden"
-                                        class="gform_hidden"
-                                        name="state_4"
-                                        value="WyJ7XCI1LjFcIjpcIjIwOTM2OTY3Mzk0MzM4OTlmN2E5YjY4YmUxNmEyODNhXCIsXCI1LjJcIjpcIjc5ZDNiNGUxMjk4NzkxMGRmZmIwYTYxNmYzZmQxN2VlXCIsXCI1LjNcIjpcIjk5NTI4NDM4ZGEyZjczMWQzNDQ1NDQxZDFhZWI5ZDAxXCJ9IiwiNGJmZmZiN2ExMDNjN2QwOGY4NTkzMmI1ZDAwNDliMTYiXQ=="
-                                    />
-                                    <input
-                                        type="hidden"
-                                        class="gform_hidden"
-                                        name="gform_target_page_number_4"
-                                        id="gform_target_page_number_4"
-                                        value="0"
-                                    />
-                                    <input
-                                        type="hidden"
-                                        class="gform_hidden"
-                                        name="gform_source_page_number_4"
-                                        id="gform_source_page_number_4"
-                                        value="1"
-                                    />
-                                    <input type="hidden" name="gform_field_values" value="" />
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -794,24 +686,6 @@
             var params = [];
         </script>
         <script src="assets/main.js?v=2" id="granola-scripts-js"></script>
-
-        <!-- GRAVITY -->
-        <script defer="defer" src="https://jerome-toole.github.io/yuck/wp-content/plugins/gravityforms/js/jquery.json.min.js" id="gform_json-js"></script>
-        <script id="gform_gravityforms-js-extra">
-            var gform_i18n = {"datepicker":{"days":{"monday":"Mon","tuesday":"Tue","wednesday":"Wed","thursday":"Thu","friday":"Fri","saturday":"Sat","sunday":"Sun"},"months":{"january":"January","february":"February","march":"March","april":"April","may":"May","june":"June","july":"July","august":"August","september":"September","october":"October","november":"November","december":"December"},"firstDay":1,"iconText":"Select date"}};
-            var gf_global = {"gf_currency_config":{"name":"Pound Sterling","symbol_left":"&#163;","symbol_right":"","symbol_padding":" ","thousand_separator":",","decimal_separator":".","decimals":2,"code":"GBP"},"base_url":"\/wp-content\/plugins\/gravityforms","number_formats":[],"spinnerUrl":"\/wp-content\/plugins\/gravityforms\/images\/spinner.svg","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
-            var gf_legacy_multi = {"4":""};
-            var gf_global = {"gf_currency_config":{"name":"Pound Sterling","symbol_left":"&#163;","symbol_right":"","symbol_padding":" ","thousand_separator":",","decimal_separator":".","decimals":2,"code":"GBP"},"base_url":"\/wp-content\/plugins\/gravityforms","number_formats":[],"spinnerUrl":"\/wp-content\/plugins\/gravityforms\/images\/spinner.svg","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
-            var gf_legacy_multi = {"4":""};
-            </script>
-        <script defer="defer" src="https://jerome-toole.github.io/yuck/wp-content/plugins/gravityforms/js/gravityforms.min.js" id="gform_gravityforms-js"></script>
-        <script>
-            gform.initializeOnLoaded( function() { jQuery(document).on('gform_post_render', function(event, formId, currentPage){if(formId == 4) {} } );jQuery(document).bind('gform_post_conditional_logic', function(event, formId, fields, isInit){} ) } );
-        </script>
-        <script>
-            gform.initializeOnLoaded( function() { jQuery(document).trigger('gform_post_render', [4, 1]) } );
-        </script>
-        <!-- GRAVITY -->
 
         <!-- CHAT WIDGET -->
         <!--Start of Tawk.to Script-->
