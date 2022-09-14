@@ -1,5 +1,5 @@
 import ESLintPlugin from 'eslint-webpack-plugin';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 // -----------------------------------------------------------------------------
 // Options currently supports one property, production.
@@ -64,13 +64,13 @@ export default (options) => {
         // stats: 'errors-only',
     };
 
-    config.plugins = [
-        new BundleAnalyzerPlugin({
-            defaultSizes: 'gzip',
-            analyzerMode: 'static',
-            openAnalyzer: false,
-        }),
-    ];
+    // config.plugins = [
+    //     new BundleAnalyzerPlugin({
+    //         defaultSizes: 'gzip',
+    //         analyzerMode: 'static',
+    //         openAnalyzer: false,
+    //     }),
+    // ];
 
     // ---------------------------------------------------------------------
     // Ship it
