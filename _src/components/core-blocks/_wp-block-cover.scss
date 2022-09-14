@@ -48,4 +48,14 @@
         //     @include box-shadow;
         // }
     }
+
+    &--fancy-text {
+        h2 {
+            @include typestyle-hero;
+
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-image: linear-gradient(55deg,#92a6b5,var(--color--brand-1));
+        }
+    }
 }
