@@ -1,0 +1,35 @@
+.tawk-button {
+    --tawk-header-background-color: #f35178 !important;
+    --tawk-header-text-color: #ffffff !important;
+
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    z-index: 1000;
+    border: 0px;
+    word-break: break-word;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0;
+    overflow: hidden;
+    font: inherit;
+    text-transform: none;
+    display: inline-block;
+    background-color: var(--tawk-header-background-color);
+    color: var(--tawk-header-text-color);
+    font-size: .937rem;
+    padding: 0;
+    border-radius: 100%;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 3.75rem;
+
+    svg {
+        width: 32px;
+        height: 32px;
+        fill: #fff;
+    }
+}
