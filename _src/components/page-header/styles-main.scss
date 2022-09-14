@@ -24,7 +24,6 @@
     grid-template-columns: var(--width--responsive--l);
     isolation: isolate; // Create local stacking context.
     justify-items: var(--page-header--grid-alignment-x);
-    min-height: min(100vh, #{rem(570)});
     padding: var(--space--responsive--l) 0;
 
     @include mq(large) {
