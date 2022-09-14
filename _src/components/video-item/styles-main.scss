@@ -50,12 +50,7 @@
             width: 100%;
             background-color: var(--color--black);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-
-            &::before {
-                display: block;
-                aspect-ratio: var(--video-item--aspect-ratio);
-                content: '';
-            }
+            aspect-ratio: var(--video-item--aspect-ratio);
         }
 
         &-close {
