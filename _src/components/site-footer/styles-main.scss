@@ -1,10 +1,10 @@
 .site-footer {
     --link--color: var(--color--foreground);
     --link--color--hover: var(--color--foreground);
-    --site-footer__images--aspect-ratio: 1 / 1;
+    --site-footer__images--aspect-ratio: 2 / 1;
 
     $this: &;
-    $footer-breakpoint--small: 400px;
+    $footer-breakpoint--small: 540px;
 
     padding-top: var(--space--l);
 
@@ -22,27 +22,24 @@
         grid-template-areas:
             'logo'
             'top-text'
-            'menu-1'
-            'menu-2'
             'right';
 
         @include mq($footer-breakpoint--small) {
             grid-template-areas:
-                'logo logo'
-                'top-text menu-1'
-                'menu-2 right';
+                'logo right'
+                'top-text right';
         }
 
         @include mq(medium) {
             grid-template-areas:
-                'logo menu-1 menu-2 . right'
-                'top-text menu-1 menu-2 . right';
-            grid-template-columns: minmax(0, 1fr) minmax(0, 0.5fr) minmax(0, 0.5fr) auto minmax(0, 1fr);
+                'logo logo . right right'
+                'top-text top-text . right right';
+            grid-template-columns: minmax(0, 1fr) minmax(0, 0.5fr) auto minmax(0, 1fr);
             grid-template-rows: min-content 1fr;
         }
 
         @include mq(large) {
-            grid-template-columns: minmax(0, 1fr) minmax(0, 0.5fr) minmax(0, 0.5fr) minmax(0, 1fr) minmax(0, 1fr);
+            grid-template-columns: minmax(0, 1fr) minmax(0, 0.5fr) auto minmax(0, 1fr) minmax(0, 1fr);
         }
 
         > * {
@@ -103,7 +100,7 @@
         align-self: stretch;
         gap: var(--space--base);
 
-        @include mq(medium) {
+        @include mq($footer-breakpoint--small) {
             justify-items: flex-end;
         }
     }
