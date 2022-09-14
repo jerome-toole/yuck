@@ -1,6 +1,8 @@
 # Yuck.com
 Demo site created for a presentation at WordCamp Netherlands and designed to share methods and tools to reduce page weight and carbon emissions on websites.
 
+See the Tags to review each step of optimisations.
+
 ## Hosted Versions
 - [Yuck.com - Starting point](https://jerome-toole.github.io/yuck/) (3g CO2 per page view)
 - [Yuck.com - Phase 2](https://jerome-toole.github.io/yuck-phase-2/)
