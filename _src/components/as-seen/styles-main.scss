@@ -24,6 +24,10 @@
         gap: var(--space--m, 0);
     }
 
+    &__items {
+        justify-items: center;
+    }
+
     &__heading {
         text-align: center;
 
@@ -40,6 +44,7 @@
         width: 100%;
         aspect-ratio: 3/1;
         transform: scale(var(--as-seen--image-scale, 1));
+        max-width: 14em;
 
         img {
             object-fit: contain;

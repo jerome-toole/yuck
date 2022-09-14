@@ -9,7 +9,7 @@
     --page-header--text-align: left;
     --page-header--grid-alignment-x: left;
     --page-header--overlay-opacity: 24%;
-    --page-header--background: #739ba6;
+    --page-header--background: var(--color--brand-2);
 
     $this: &;
     $internal-z-index: 100; // Local stacking.

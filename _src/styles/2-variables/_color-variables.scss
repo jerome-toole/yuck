@@ -8,14 +8,14 @@
 $colors: (
     'base': (
         'lightgreen': (
-            'color': #dfebda,
+            'color': #9cd1ae,
         ),
         'darkgreen': (
-            'color': #7cb18e,
-            'foreground': var(--color--blackolive),
+            'color': #4aa183,
+            'foreground': var(--color--mouldbluedark),
             'properties': (
-                '--link--color': var(--color--blackolive),
-                '--link--color--hover': var(--color--blackolive),
+                '--link--color': var(--color--mouldbluedark),
+                '--link--color--hover': var(--color--mouldbluedark),
             ),
         ),
         'blue': (
@@ -42,6 +42,14 @@ $colors: (
         ),
         'mouldblue': (
             'color': #3d5d66,
+            'foreground': var(--color--lightgreen),
+            'properties': (
+                '--link--color': var(--color--lightgreen),
+                '--link--color--hover': var(--color--lightgreen),
+            ),
+        ),
+        'mouldbluedark': (
+            'color': #304a51,
             'foreground': var(--color--lightgreen),
             'properties': (
                 '--link--color': var(--color--lightgreen),
@@ -99,7 +107,7 @@ $colors: (
             'namedColor': 'mouldblue',
         ),
         'background': (
-            'namedColor': 'white',
+            'namedColor': 'mouldbluedark',
         ),
         'style-guide': (
             'color': #d4444d,
