@@ -677,35 +677,35 @@ template {
   font-family: "yuck-syncopate";
   font-style: normal;
   font-weight: 200;
-  src: url("./static/Syncopate-Regular.ttf");
+  src: url("./static/subset-Syncopate-Regular.woff2");
 }
 @font-face {
   font-display: swap;
   font-family: "yuck-syncopate";
   font-style: normal;
   font-weight: 400;
-  src: url("./static/Syncopate-Bold.ttf");
+  src: url("./static/subset-Syncopate-Bold.woff2");
 }
 @font-face {
   font-display: swap;
   font-family: "yuck-inter";
   font-style: normal;
   font-weight: 200;
-  src: url("./static/Inter-Light.ttf");
+  src: url("./static/subset-Inter-Light.woff2");
 }
 @font-face {
   font-display: swap;
   font-family: "yuck-inter";
   font-style: normal;
   font-weight: 400;
-  src: url("./static/Inter-SemiBold.ttf");
+  src: url("./static/subset-Inter-SemiBold.woff2");
 }
 @font-face {
   font-display: swap;
   font-family: "yuck-inter";
   font-style: normal;
   font-weight: 700;
-  src: url("./static/Inter-Black.ttf");
+  src: url("./static/subset-Inter-Black.woff2");
 }
 *:focus {
   outline: var(--focus--1--width, 2px) dotted var(--focus--color);
