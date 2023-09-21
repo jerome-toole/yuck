@@ -6,7 +6,7 @@ See the Tags to review each step of optimisations.
 ## Hosted Versions
 - [Yuck.com - Starting point](https://jerome-toole.github.io/yuck/) (3g CO2 per page view)
 - [Yuck.com - Phase 2](https://jerome-toole.github.io/yuck-phase-2/)
-- [Yum.com - Completed](https://jerome-toole.github.io/yuck-phase-2/) (0.05g CO2 per page view)
+- [Yum.com - Completed](https://jerome-toole.github.io/yum/) (0.05g CO2 per page view)
 
 ## Related Links
 - Google Sheet with Carbon and PageSpeed measurements for each step: [Yuck.com to Yum.com - Carbon Measurements](https://docs.google.com/spreadsheets/d/1N3xj5K6got0BqWySgTWXnCDig8ywUjGEHalF1hy-nC8/edit?usp=sharing)
